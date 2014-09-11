@@ -1,0 +1,10 @@
+D:\Data_CoreBanking\bin\BankProject.dll
+D:\Data_CoreBanking\bin\BankProject.pdb
+D:\Data_CoreBanking\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.dll
+D:\Data_CoreBanking\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.pdb
+D:\Data_CoreBanking\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.csprojResolveAssemblyReference.cache
+D:\Working\TTC\SourceCode\Teller\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.csprojResolveAssemblyReference.cache
+D:\Working\TTC\SourceCode\Teller\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.dll
+D:\Working\TTC\SourceCode\Teller\bin\BankProject.dll
+D:\Working\TTC\SourceCode\Teller\bin\BankProject.pdb
+D:\Working\TTC\SourceCode\Teller\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.pdb
