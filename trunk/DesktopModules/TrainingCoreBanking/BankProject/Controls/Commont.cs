@@ -141,5 +141,17 @@ namespace BankProject.Controls
             //
             return urls;
         }
+        //
+        public static void initRadComboBox(ref RadComboBox cboList, string DataTextField, string DataValueField, object DataSource)
+        {
+            cboList.DataTextField = DataTextField;
+            cboList.DataValueField = DataValueField;
+            cboList.DataSource = DataSource;
+            cboList.DataBind();
+            if (cboList.Items.Count > 0)
+            {
+                cboList.Items.Insert(0, new RadComboBoxItem(""));
+            }
+        }
     }
 }
