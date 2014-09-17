@@ -170,6 +170,10 @@ namespace BankProject.DataProvider
         {
             sqldata.ndkExecuteNonQuery("OPEN_CORPORATE_CUSTOMER_Authorize_Account", CustomerID, Status);
         }
+        public static DataSet OPEN_INDIVIDUAL_CUSTOMER_CheckDocID_Exists(string CustomerID,string CustomerType, string DocID)
+        {
+            return sqldata.ndkExecuteDataset("OPEN_INDIVIDUAL_CUSTOMER_CheckDocID_Exists", CustomerID, CustomerType,  DocID);
+        }
         #endregion
         #region B_OPEN_LOAN_WORKING_ACCOUNT
         public static void B_OPEN_LOANWORK_ACCT_Update_Status(string RefID, string CustomerID, string Status)
