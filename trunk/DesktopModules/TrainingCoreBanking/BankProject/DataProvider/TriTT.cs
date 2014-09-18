@@ -174,6 +174,10 @@ namespace BankProject.DataProvider
         {
             return sqldata.ndkExecuteDataset("OPEN_INDIVIDUAL_CUSTOMER_CheckDocID_Exists", CustomerID, CustomerType,  DocID);
         }
+        public static DataSet B_BCASHWITHDRAWAL_Load_Customer_WorkingAmt(string AccountType, string CustomerAccountCode,string Currency)
+        {
+            return sqldata.ndkExecuteDataset("B_BCASHWITHDRAWAL_Load_Customer_WorkingAmt",AccountType ,CustomerAccountCode,Currency);
+        }
         #endregion
         #region B_OPEN_LOAN_WORKING_ACCOUNT
         public static void B_OPEN_LOANWORK_ACCT_Update_Status(string RefID, string CustomerID, string Status)
