@@ -215,6 +215,10 @@
     <Content Include="Views\TellerApplication\CollectChargesByCash.ascx" />
     <Content Include="Views\TellerApplication\BuyTravellersCheque.ascx" />
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx" />
+    <Content Include="Views\TellerApplication\DefineCustomerLimit.ascx" />
+    <Content Include="Views\TellerApplication\DefineCustomerLimitSub.ascx" />
+    <Content Include="Views\TellerApplication\DefineCustomerLimit_Enquiry.ascx" />
+    <Content Include="Views\TellerApplication\DefineCustomerLimit_PL.ascx" />
     <Content Include="Views\TellerApplication\EnquiryAccount.ascx" />
     <Content Include="Views\TellerApplication\EnquiryAccountTransaction.ascx" />
     <Content Include="Views\TellerApplication\EnquiryCheque.ascx" />
@@ -223,6 +227,9 @@
     <Content Include="Views\TellerApplication\DCTransaction.ascx" />
     <Content Include="Views\TellerApplication\ForeignExchange.ascx" />
     <Content Include="Views\TellerApplication\ForeignExchangePreviewList.ascx" />
+    <Content Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx" />
+    <Content Include="Views\TellerApplication\OpenLoanWorkingAccount_PL.ascx" />
+    <Content Include="Views\TellerApplication\OpenLoanWorkingAcct_Enquiry.ascx" />
     <Content Include="Views\TellerApplication\SellTravellersCheque.ascx" />
     <Content Include="Views\TellerApplication\FTAccountClose.ascx" />
     <Content Include="Views\TellerApplication\FTAccountClose2.ascx" />
@@ -1120,6 +1127,34 @@
     <Compile Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx.designer.cs">
       <DependentUpon>CollectionForCreditCardPayment_PL.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimit.ascx.cs">
+      <DependentUpon>DefineCustomerLimit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimit.ascx.designer.cs">
+      <DependentUpon>DefineCustomerLimit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimitSub.ascx.cs">
+      <DependentUpon>DefineCustomerLimitSub.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimitSub.ascx.designer.cs">
+      <DependentUpon>DefineCustomerLimitSub.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimit_Enquiry.ascx.cs">
+      <DependentUpon>DefineCustomerLimit_Enquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimit_Enquiry.ascx.designer.cs">
+      <DependentUpon>DefineCustomerLimit_Enquiry.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimit_PL.ascx.cs">
+      <DependentUpon>DefineCustomerLimit_PL.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\DefineCustomerLimit_PL.ascx.designer.cs">
+      <DependentUpon>DefineCustomerLimit_PL.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Views\TellerApplication\EnquiryAccount.ascx.cs">
       <DependentUpon>EnquiryAccount.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1175,6 +1210,27 @@
     </Compile>
     <Compile Include="Views\TellerApplication\ForeignExchangePreviewList.ascx.designer.cs">
       <DependentUpon>ForeignExchangePreviewList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx.cs">
+      <DependentUpon>OpenLoanWorkingAccount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx.designer.cs">
+      <DependentUpon>OpenLoanWorkingAccount.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount_PL.ascx.cs">
+      <DependentUpon>OpenLoanWorkingAccount_PL.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount_PL.ascx.designer.cs">
+      <DependentUpon>OpenLoanWorkingAccount_PL.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\OpenLoanWorkingAcct_Enquiry.ascx.cs">
+      <DependentUpon>OpenLoanWorkingAcct_Enquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\OpenLoanWorkingAcct_Enquiry.ascx.designer.cs">
+      <DependentUpon>OpenLoanWorkingAcct_Enquiry.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\SellTravellersCheque.ascx.cs">
       <DependentUpon>SellTravellersCheque.ascx</DependentUpon>
