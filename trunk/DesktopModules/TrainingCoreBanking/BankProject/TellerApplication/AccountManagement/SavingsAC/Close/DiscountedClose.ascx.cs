@@ -99,14 +99,15 @@ namespace BankProject.TellerApplication.AccountManagement.SavingsAC.Close
             {
                 amount.Value = (double?)discountedAccount.DPAmountLCY.Value;
                 amountPri.Value = (double?)discountedAccount.AmmountLCY.Value;
-                lblAmount.Text = discountedAccount.AmmountLCY.ToString();
-                lbTotalIntAmt.Text = discountedAccount.DPAmountLCY.ToString();
+                lblAmount.Text = String.Format("{0:#,###.##}",discountedAccount.AmmountLCY.ToString());
+                lbTotalIntAmt.Text = String.Format("{0:#,###.##}",discountedAccount.DPAmountLCY);
             }
-            else {
+            else
+            {
                 amount.Value = (double?)discountedAccount.DPAmountFCY.Value;
                 amountPri.Value = (double?)discountedAccount.AmountFCY.Value;
-                lblAmount.Text = discountedAccount.AmountFCY.ToString();
-                lbTotalIntAmt.Text = discountedAccount.DPAmountFCY.ToString();
+                lblAmount.Text = String.Format("{0:#,###.##}",discountedAccount.AmountFCY.ToString());
+                lbTotalIntAmt.Text = String.Format("{0:#,###.##}", discountedAccount.DPAmountFCY);
             }
             lbValueDate.Text = discountedAccount.TDValueDate.Value.ToString("dd/MM/yyyy");
            
@@ -170,10 +171,24 @@ namespace BankProject.TellerApplication.AccountManagement.SavingsAC.Close
         private void ComAmount(DateTime? matDate, double? locInterestRate)
         {
             if (!locInterestRate.HasValue) return;
+            locInterestRate = 1; //it should take from interested rate table
+
+            //var intAmt = String.IsNullOrEmpty(lbTotalIntAmt.Text) ? 0.0 : Double.Parse(lbTotalIntAmt.Text);//so tien lai ung truoc
+            //var amount = String.IsNullOrEmpty(lblAmount.Text) ? 0.0 : Double.Parse(lblAmount.Text);//so tien gui
+            //var interestPerDay = (locInterestRate / 36000) * amount;//
+            //var noOfInterestDay = matDate.Value.Subtract(startDate.SelectedDate.Value).Days;
+
+
+            //var totalAmount = (amount - intAmt) + (noOfInterestDay * interestPerDay);
+
+
+
+
             var dayTerm = endDate.SelectedDate.Value.Subtract(startDate.SelectedDate.Value).Days;
             var totalCloseDate = matDate.Value.Subtract(startDate.SelectedDate.Value).Days;
-            var n = totalCloseDate / dayTerm;
+            var n = (double)totalCloseDate / (double)dayTerm;
             var d = totalCloseDate - (dayTerm * n);
+
             var interestRateDay = locInterestRate.Value / 100 / 360;
             var amountPaid = d * interestRateDay * amountPri.Value;
 
