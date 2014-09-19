@@ -179,7 +179,6 @@
     <Content Include="Views\TellerApplication\CashRepayment.ascx" />
     <Content Include="Views\TellerApplication\CashRepayment_PL.ascx" />
     <Content Include="Views\TellerApplication\CashWithdrawalPreviewList.ascx" />
-    <Content Include="Views\TellerApplication\CashWithdrawalsBuyingPreviewList.ascx" />
     <Content Include="Views\TellerApplication\BlockAccount.ascx" />
     <Content Include="Views\TellerApplication\BlockAccountList.ascx" />
     <Content Include="Views\TellerApplication\CancelStopCheque.ascx" />
@@ -211,9 +210,7 @@
     <Content Include="Views\TellerApplication\CollectChargesByCashPreviewList.ascx" />
     <Content Include="Views\TellerApplication\CollectChargesPreviewList.ascx" />
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment.ascx" />
-    <Content Include="Views\TellerApplication\CashWithdrawalsBuying.ascx" />
     <Content Include="Views\TellerApplication\CollectChargesByCash.ascx" />
-    <Content Include="Views\TellerApplication\BuyTravellersCheque.ascx" />
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx" />
     <Content Include="Views\TellerApplication\DefineCustomerLimit.ascx" />
     <Content Include="Views\TellerApplication\DefineCustomerLimitSub.ascx" />
@@ -222,15 +219,10 @@
     <Content Include="Views\TellerApplication\EnquiryAccount.ascx" />
     <Content Include="Views\TellerApplication\EnquiryAccountTransaction.ascx" />
     <Content Include="Views\TellerApplication\EnquiryCheque.ascx" />
-    <Content Include="Views\TellerApplication\ExchangeBanknotesManyDeno.ascx" />
-    <Content Include="Views\TellerApplication\ExchangeBanknotesManyDeno_PL.ascx" />
     <Content Include="Views\TellerApplication\DCTransaction.ascx" />
-    <Content Include="Views\TellerApplication\ForeignExchange.ascx" />
-    <Content Include="Views\TellerApplication\ForeignExchangePreviewList.ascx" />
     <Content Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx" />
     <Content Include="Views\TellerApplication\OpenLoanWorkingAccount_PL.ascx" />
     <Content Include="Views\TellerApplication\OpenLoanWorkingAcct_Enquiry.ascx" />
-    <Content Include="Views\TellerApplication\SellTravellersCheque.ascx" />
     <Content Include="Views\TellerApplication\FTAccountClose.ascx" />
     <Content Include="Views\TellerApplication\FTAccountClose2.ascx" />
     <Content Include="Views\TellerApplication\OpenIndividualCreditAcc.ascx" />
@@ -247,7 +239,6 @@
     <Content Include="Views\TellerApplication\UnBlockAccountPreviewList.ascx" />
     <Content Include="Views\TellerApplication\ChequeTransferDrawnOnUs_PL.ascx" />
     <Content Include="Views\TellerApplication\WebUserControl2.ascx" />
-    <Content Include="Views\TellerApplication\WUXoomPayment.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -875,13 +866,6 @@
     <Compile Include="Views\TellerApplication\CashWithdrawalPreviewList.ascx.designer.cs">
       <DependentUpon>CashWithdrawalPreviewList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Views\TellerApplication\CashWithdrawalsBuyingPreviewList.ascx.cs">
-      <DependentUpon>CashWithdrawalsBuyingPreviewList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\CashWithdrawalsBuyingPreviewList.ascx.designer.cs">
-      <DependentUpon>CashWithdrawalsBuyingPreviewList.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Views\TellerApplication\BlockAccount.ascx.cs">
       <DependentUpon>BlockAccount.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1099,26 +1083,12 @@
     <Compile Include="Views\TellerApplication\CollectionForCreditCardPayment.ascx.designer.cs">
       <DependentUpon>CollectionForCreditCardPayment.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Views\TellerApplication\CashWithdrawalsBuying.ascx.cs">
-      <DependentUpon>CashWithdrawalsBuying.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\CashWithdrawalsBuying.ascx.designer.cs">
-      <DependentUpon>CashWithdrawalsBuying.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Views\TellerApplication\CollectChargesByCash.ascx.cs">
       <DependentUpon>CollectChargesByCash.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TellerApplication\CollectChargesByCash.ascx.designer.cs">
       <DependentUpon>CollectChargesByCash.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TellerApplication\BuyTravellersCheque.ascx.cs">
-      <DependentUpon>BuyTravellersCheque.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\BuyTravellersCheque.ascx.designer.cs">
-      <DependentUpon>BuyTravellersCheque.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx.cs">
       <DependentUpon>CollectionForCreditCardPayment_PL.ascx</DependentUpon>
@@ -1176,40 +1146,12 @@
     <Compile Include="Views\TellerApplication\EnquiryCheque.ascx.designer.cs">
       <DependentUpon>EnquiryCheque.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Views\TellerApplication\ExchangeBanknotesManyDeno.ascx.cs">
-      <DependentUpon>ExchangeBanknotesManyDeno.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ExchangeBanknotesManyDeno.ascx.designer.cs">
-      <DependentUpon>ExchangeBanknotesManyDeno.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ExchangeBanknotesManyDeno_PL.ascx.cs">
-      <DependentUpon>ExchangeBanknotesManyDeno_PL.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ExchangeBanknotesManyDeno_PL.ascx.designer.cs">
-      <DependentUpon>ExchangeBanknotesManyDeno_PL.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Views\TellerApplication\DCTransaction.ascx.cs">
       <DependentUpon>DCTransaction.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\TellerApplication\DCTransaction.ascx.designer.cs">
       <DependentUpon>DCTransaction.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ForeignExchange.ascx.cs">
-      <DependentUpon>ForeignExchange.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ForeignExchange.ascx.designer.cs">
-      <DependentUpon>ForeignExchange.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ForeignExchangePreviewList.ascx.cs">
-      <DependentUpon>ForeignExchangePreviewList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\ForeignExchangePreviewList.ascx.designer.cs">
-      <DependentUpon>ForeignExchangePreviewList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx.cs">
       <DependentUpon>OpenLoanWorkingAccount.ascx</DependentUpon>
@@ -1231,13 +1173,6 @@
     </Compile>
     <Compile Include="Views\TellerApplication\OpenLoanWorkingAcct_Enquiry.ascx.designer.cs">
       <DependentUpon>OpenLoanWorkingAcct_Enquiry.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TellerApplication\SellTravellersCheque.ascx.cs">
-      <DependentUpon>SellTravellersCheque.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\SellTravellersCheque.ascx.designer.cs">
-      <DependentUpon>SellTravellersCheque.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\FTAccountClose.ascx.cs">
       <DependentUpon>FTAccountClose.ascx</DependentUpon>
@@ -1350,13 +1285,6 @@
     </Compile>
     <Compile Include="Views\TellerApplication\WebUserControl2.ascx.designer.cs">
       <DependentUpon>WebUserControl2.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\TellerApplication\WUXoomPayment.ascx.cs">
-      <DependentUpon>WUXoomPayment.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\WUXoomPayment.ascx.designer.cs">
-      <DependentUpon>WUXoomPayment.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

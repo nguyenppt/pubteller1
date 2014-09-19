@@ -409,6 +409,24 @@ namespace BankProject.TellerApplication.CustomerManagement.OpenInvidualCustomer 
         protected global::Telerik.Web.UI.RadTextBox txtCifCode;
         
         /// <summary>
+        /// lnkSignature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkSignature;
+        
+        /// <summary>
+        /// imgSignature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgSignature;
+        
+        /// <summary>
         /// rcbGender control.
         /// </summary>
         /// <remarks>

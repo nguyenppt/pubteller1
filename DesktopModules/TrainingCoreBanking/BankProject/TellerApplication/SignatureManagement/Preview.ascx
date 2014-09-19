@@ -28,7 +28,9 @@
 <table cellpadding="0" cellspacing="0">
     <tr>
         <td class="MyLable">Customer Id <span class="Required">(*)</span><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Customer require !" Display="None" ControlToValidate="txtCustomerId" ValidationGroup="Commit"></asp:RequiredFieldValidator></td>
-        <td class="MyContent"><asp:HiddenField ID="txtCustomerIdOld" runat="server" /><asp:TextBox ID="txtCustomerId" runat="server" Width="200" /> <span style="color: darkgrey;"><asp:Label ID="lblCustomerName" runat="server" Text=""></asp:Label></span></td>
+        <td class="MyContent"><asp:HiddenField ID="txtCustomerIdOld" runat="server" />
+            <asp:TextBox ID="txtCustomerId" runat="server" Width="200" /> <span style="color: darkgrey;">
+                <asp:Label ID="lblCustomerName" runat="server" Text=""></asp:Label></span></td>
     </tr>
     <tr>
         <td class="MyLable" style="vertical-align:top;">Signature </td>

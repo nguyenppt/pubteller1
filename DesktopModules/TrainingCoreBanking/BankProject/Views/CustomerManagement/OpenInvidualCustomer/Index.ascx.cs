@@ -454,6 +454,11 @@ namespace BankProject.TellerApplication.CustomerManagement.OpenInvidualCustomer
         }
         private void BindDataToControl(string CustomerIDToReview)
         {
+            if (CustomerIDToReview.StartsWith("2"))
+            {
+                ShowMsgBox("This is Corporate Customer. Please go to function Open Corporate Customer to view the information.");
+                return;
+            }
             // ham GetIndividualCustomer_ByID kem theo tham so CustomerIDToReview trong Class SavingAccount_SQL se tra ve 1 doi tuong co cac 
             // Attributes duoc mieu ta trong lop doi tuong Class SavingAccount
             var IndividualCustomer = SavingAccount_SQL.GetIndividualCustomer_ByID(CustomerIDToReview);
@@ -528,6 +533,13 @@ namespace BankProject.TellerApplication.CustomerManagement.OpenInvidualCustomer
             StatusAccount_from_Search_action = IndividualCustomer.Status;
             if (IndividualCustomer.Status == "AUT")
             {
+                imgSignature.ImageUrl = "";
+                lnkSignature.NavigateUrl = "#";
+                if (IndividualCustomer.Signatures != null)
+                {
+                    imgSignature.ImageUrl = "~/" + BankProject.DataProvider.Customer.SignaturePath + "/" + IndividualCustomer.Signatures;
+                    lnkSignature.NavigateUrl = imgSignature.ImageUrl;
+                }
                 BankProject.Controls.Commont.SetTatusFormControls(this.Controls, false);
                 LoadToolBar_AllFalse();
                 return;

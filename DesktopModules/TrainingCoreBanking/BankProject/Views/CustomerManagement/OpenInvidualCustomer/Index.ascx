@@ -516,6 +516,13 @@
                     <td class="MyLable">Company Book</td>
                     <td >CHI NHANH TAN BINH</td>
                 </tr>
+                <tr>
+                    <td class="MyLable">Signature</td>
+                    <td class="MyContent">
+                         <asp:HyperLink ID="lnkSignature" runat="server" Target="_blank">
+                         <asp:Image ID="imgSignature" runat="server" CssClass="imgSignaturePreview" /></asp:HyperLink>
+                    </td>
+                </tr>
             </table>
         </div>
 
