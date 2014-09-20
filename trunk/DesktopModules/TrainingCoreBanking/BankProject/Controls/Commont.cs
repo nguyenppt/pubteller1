@@ -65,11 +65,15 @@ namespace BankProject.Controls
             }
         }
         //Xem Signature Management -> Amend.ascx
-        public static void ShowClientMessageBox(Page pageControl, System.Type typeOfPageControl, string contents, int width = 420, int hiegth = 150)
+        public static void ShowClientMessageBox(Page pageControl, System.Type typeOfPageControl, string contents, int width = 420, int heigth = 150)
+        {
+            ShowClientMessageBox(pageControl, typeOfPageControl, contents, null);
+        }
+        public static void ShowClientMessageBox(Page pageControl, System.Type typeOfPageControl, string contents, string redirectPage, int width = 420, int heigth = 150)
         {
             string radalertscript =
-                "<script language='javascript'>function f(){radalert('" + contents + "', " + width + ", '" + hiegth +
-                "', 'Warning'); Sys.Application.remove_load(f);}; Sys.Application.add_load(f);</script>";
+                "<script language='javascript'>function f(){radalert('" + contents + "', " + width + ", '" + heigth +
+                "', 'Warning');" + (String.IsNullOrEmpty(redirectPage) ? "" : "window.location='" + redirectPage + "';") + " Sys.Application.remove_load(f);}; Sys.Application.add_load(f);</script>";
             pageControl.ClientScript.RegisterStartupScript(typeOfPageControl, "radalert", radalertscript);
         }
         //Xem Signature Management -> Enquiry.ascx
