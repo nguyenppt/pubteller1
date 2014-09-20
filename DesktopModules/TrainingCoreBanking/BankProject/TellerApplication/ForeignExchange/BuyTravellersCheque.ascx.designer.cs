@@ -202,15 +202,6 @@ namespace BankProject.Views.TellerApplication.ForeignExchange {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldcmbTCCurrency;
         
         /// <summary>
-        /// RadAjaxPanelDebitAcc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanelDebitAcc;
-        
-        /// <summary>
         /// rcbDrAccount control.
         /// </summary>
         /// <remarks>
@@ -434,15 +425,6 @@ namespace BankProject.Views.TellerApplication.ForeignExchange {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dvAudit;
-        
-        /// <summary>
-        /// RadAjaxLoadingPanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel1;
         
         /// <summary>
         /// RadCodeBlock1 control.
