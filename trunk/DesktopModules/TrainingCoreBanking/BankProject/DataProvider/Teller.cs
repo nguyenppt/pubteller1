@@ -143,5 +143,35 @@ namespace BankProject.DataProvider
             sqldata.ndkExecuteNonQuery("P_BuyTravellersChequeUpdateStatus", TTNo, Status, UserUpdate);
         }
         //
+        public static void ForeignExchangeUpdate(string Command, string TTNo, string CustomerName, string CustomerAddress, string CustomerPassportNo, 
+            string CustomerPassportDateOfIssue, string CustomerPassportPlaceOfIssue, string CustomerPhoneNo, string TellerID, string DebitCurrency, 
+            string DebitAccount, double? DebitAmtLCY, double? DebitAmtFCY, string CurrencyPaid, string CrTellerID, string CreditAccount, double? DealRate, 
+            double? AmountPaid, string Narrative, string UserExecute)
+        {
+            sqldata.ndkExecuteNonQuery("P_ForeignExchangeUpdate", Command, TTNo, CustomerName, CustomerAddress, CustomerPassportNo, CustomerPassportDateOfIssue,
+            CustomerPassportPlaceOfIssue, CustomerPhoneNo, TellerID, DebitCurrency, DebitAccount, DebitAmtLCY, DebitAmtFCY,
+            CurrencyPaid, CrTellerID, CreditAccount, DealRate, AmountPaid, Narrative, UserExecute);
+        }
+        public static DataTable ForeignExchangeDetailOrList(string Status)
+        {
+            return ForeignExchangeDetailOrList(null, Status, null, null, null);
+        }
+        public static DataTable ForeignExchangeDetailOrList(string TTNo, string Status)
+        {
+            return ForeignExchangeDetailOrList(TTNo, Status, null, null, null);
+        }
+        public static DataTable ForeignExchangeDetailOrList(string CustomerName, string PassportNo, string PhoneNo)
+        {
+            return ForeignExchangeDetailOrList(null, null, CustomerName, PassportNo, PhoneNo);
+        }
+        private static DataTable ForeignExchangeDetailOrList(string TTNo, string Status, string CustomerName, string PassportNo, string PhoneNo)
+        {
+            return sqldata.ndkExecuteDataset("P_ForeignExchangeDetailOrList", TTNo, Status, CustomerName, PassportNo, PhoneNo).Tables[0];
+        }
+        public static void ForeignExchangeUpdateStatus(string TTNo, string Status, string UserUpdate)
+        {
+            sqldata.ndkExecuteNonQuery("P_ForeignExchangeUpdateStatus", TTNo, Status, UserUpdate);
+        }
+        //
     }
 }
