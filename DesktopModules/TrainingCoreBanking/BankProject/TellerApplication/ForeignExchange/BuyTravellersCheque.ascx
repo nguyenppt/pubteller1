@@ -2,6 +2,11 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <telerik:RadWindowManager ID="RadWindowManager1" runat="server" EnableShadow="true"> </telerik:RadWindowManager>
 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="Commit"  />
+<style>
+    .labelDisabled {
+        color: darkgray !important;
+    }
+</style>
 <script type="text/javascript">
     jQuery(function ($) {
         $('#tabs-demo').dnnTabs();
@@ -69,8 +74,6 @@
                     </asp:RequiredFieldValidator>
                 </td>
             </tr>
-        </table>
-        <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="MyLable">Address <span class="Required">(*)</span></td>
                 <td class="MyContent"><telerik:RadTextBox ID="tbAddress" runat="server" Width="410"></telerik:RadTextBox></td>
@@ -85,9 +88,6 @@
                     </asp:RequiredFieldValidator>
                 </td>
             </tr>
-        </table>
-
-        <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="MyLable">Passport No. <span class="Required">(*)</span></td>
                 <td class="MyContent"><telerik:RadTextBox ID="tbPassportNo" runat="server" Width="160"></telerik:RadTextBox></td>
@@ -102,16 +102,14 @@
                     </asp:RequiredFieldValidator>
                 </td>
             </tr>
-        </table>
-        <table cellpadding="0" cellspacing="0">
             <tr>
                 <td class="MyLable">Date of isssue</td>
                 <td class="MyContent" style="width:160px;"><telerik:RadDatePicker ID="tbDateOfIsssue" runat="server" Width="140"></telerik:RadDatePicker></td>
-                <td class="MyLable" style="width:80px;">Place of Iss</td>
-                <td class="MyContent"><telerik:RadTextBox ID="tbPlaceOfIss" runat="server" Width="160"></telerik:RadTextBox></td>
+                <td><table><tr>
+                    <td class="MyLable" style="width:80px;">Place of Iss</td>
+                    <td class="MyContent"><telerik:RadTextBox ID="tbPlaceOfIss" runat="server" Width="160"></telerik:RadTextBox></td>
+                </tr></table></td>
             </tr>
-        </table>
-        <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="MyLable">Phone No.</td>
                 <td class="MyContent">
@@ -121,6 +119,7 @@
                     DisplayMask="(###)###-####"></telerik:RadMaskedTextBox>--%>
 
                 </td>
+                <td></td>
             </tr>
         </table>
         <hr />
@@ -143,8 +142,6 @@
             </tr>
         </table>
         <hr />
-        <asp:UpdatePanel id="UpdatePanel1" runat="server" >
-            <ContentTemplate>
         <table width="100%" cellpadding="0" cellspacing="0">
              <tr>
                 <td class="MyLable">TC Currency
@@ -188,8 +185,6 @@
                     </telerik:RadComboBox> <asp:Label ID="lbDrAccount" runat="server"></asp:Label></td>             
             </tr>
         </table>
-            </ContentTemplate>
-            </asp:UpdatePanel>
          <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="MyLable">TC Amount <span class="Required">(*)</span></td>
@@ -289,7 +284,7 @@
         </table>
 
          <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
+            <tr class="labelDisabled">
                 <td class="MyLable">Charge Amt FCY</td>
                 <td class="MyContent">
                     <telerik:RadNumericTextBox ID="tbChargeAmtFCY" ReadOnly="true" runat="server" />
@@ -297,7 +292,7 @@
             </tr>
         </table>
               <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
+            <tr class="labelDisabled">
                 <td class="MyLable">Amount Paid</td>
                 <td class="MyContent">
                     <telerik:RadNumericTextBox ID="tbAmountPaid" ReadOnly="true" runat="server" />

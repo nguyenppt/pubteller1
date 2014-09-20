@@ -21,5 +21,11 @@ begin
 		select TTNo, DrAccount Account, TCAmount Amount, TCCurrency Currency, [Status], CustomerName, CustomerPassportNo
 		from dbo.B_BuyTravellersCheque
 		where [Status] = case when @Status is null then 'AUT' else 'UNA' end
+	END
+	else if @TabId = 153
+	begin
+		select TTNo, DebitAccount Account, DebitAmtFCY Amount, DebitCurrency Currency, [Status], CustomerName, CustomerPassportNo
+		from dbo.B_ForeignExchange
+		where [Status] = case when @Status is null then 'AUT' else 'UNA' end
 	end
 end
