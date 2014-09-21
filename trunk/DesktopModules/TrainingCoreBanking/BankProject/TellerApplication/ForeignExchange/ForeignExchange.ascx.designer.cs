@@ -76,13 +76,13 @@ namespace BankProject.Views.TellerApplication.ForeignExchange {
         protected global::System.Web.UI.WebControls.HiddenField tbCustomerNameOld;
         
         /// <summary>
-        /// tbCustomerName control.
+        /// txtCustomerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox tbCustomerName;
+        protected global::Telerik.Web.UI.RadTextBox txtCustomerName;
         
         /// <summary>
         /// RequiredFieldtbCustomerName control.
@@ -94,13 +94,13 @@ namespace BankProject.Views.TellerApplication.ForeignExchange {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldtbCustomerName;
         
         /// <summary>
-        /// tbAddress control.
+        /// txtAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox tbAddress;
+        protected global::Telerik.Web.UI.RadTextBox txtAddress;
         
         /// <summary>
         /// RequiredFieldtbAddress control.
@@ -112,31 +112,31 @@ namespace BankProject.Views.TellerApplication.ForeignExchange {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldtbAddress;
         
         /// <summary>
-        /// tbPassportNo control.
+        /// txtPassportNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox tbPassportNo;
+        protected global::Telerik.Web.UI.RadTextBox txtPassportNo;
         
         /// <summary>
-        /// tbDateOfIsssue control.
+        /// txtDateOfIsssue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker tbDateOfIsssue;
+        protected global::Telerik.Web.UI.RadDatePicker txtDateOfIsssue;
         
         /// <summary>
-        /// tbPlaceOfIss control.
+        /// txtPlaceOfIss control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox tbPlaceOfIss;
+        protected global::Telerik.Web.UI.RadTextBox txtPlaceOfIss;
         
         /// <summary>
         /// txtPhoneNo control.

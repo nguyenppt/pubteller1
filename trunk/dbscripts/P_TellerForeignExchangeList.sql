@@ -27,5 +27,11 @@ begin
 		select TTNo, DebitAccount Account, DebitAmtFCY Amount, DebitCurrency Currency, [Status], CustomerName, CustomerPassportNo
 		from dbo.B_ForeignExchange
 		where [Status] = case when @Status is null then 'AUT' else 'UNA' end
+	END
+	else if @TabId = 154
+	begin
+		select TTNo, DebitAccount Account, DebitAmtFCY Amount, DebitCurrency Currency, [Status], CustomerName, CustomerPassportNo
+		from dbo.B_WUXOOMCashAdvance
+		where [Status] = case when @Status is null then 'AUT' else 'UNA' end
 	end
 end
