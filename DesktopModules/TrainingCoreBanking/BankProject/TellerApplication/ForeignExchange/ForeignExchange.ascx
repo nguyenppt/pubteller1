@@ -62,12 +62,12 @@
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="MyLable">Customer Name <span class="Required">(*)</span><asp:HiddenField ID="tbCustomerNameOld" runat="server" /></td>
-                <td class="MyContent"><telerik:RadTextBox ID="tbCustomerName" runat="server" Width="410"></telerik:RadTextBox></td>
+                <td class="MyContent"><telerik:RadTextBox ID="txtCustomerName" runat="server" Width="410"></telerik:RadTextBox></td>
                 <td>
                     <asp:RequiredFieldValidator
                         runat="server" Display="None"
                         ID="RequiredFieldtbCustomerName"
-                        ControlToValidate="tbCustomerName"
+                        ControlToValidate="txtCustomerName"
                         ValidationGroup="Commit"
                         InitialValue=""
                         ErrorMessage="Customer Name is Required" ForeColor="Red">
@@ -76,12 +76,12 @@
             </tr>
             <tr>
                 <td class="MyLable">Address <span class="Required">(*)</span></td>
-                <td class="MyContent"><telerik:RadTextBox ID="tbAddress" runat="server" Width="410"></telerik:RadTextBox></td>
+                <td class="MyContent"><telerik:RadTextBox ID="txtAddress" runat="server" Width="410"></telerik:RadTextBox></td>
                 <td>
                     <asp:RequiredFieldValidator
                         runat="server" Display="None"
                         ID="RequiredFieldtbAddress"
-                        ControlToValidate="tbAddress"
+                        ControlToValidate="txtAddress"
                         ValidationGroup="Commit"
                         InitialValue=""
                         ErrorMessage="Address is Required" ForeColor="Red">
@@ -90,16 +90,16 @@
             </tr>
             <tr style="display:none;">
                 <td class="MyLable">Passport No.</td>
-                <td class="MyContent"><telerik:RadTextBox ID="tbPassportNo" runat="server" Width="160"></telerik:RadTextBox></td>
+                <td class="MyContent"><telerik:RadTextBox ID="txtPassportNo" runat="server" Width="160"></telerik:RadTextBox></td>
                 <td>
                 </td>
             </tr>
             <tr style="display:none;">
                 <td class="MyLable">Date of isssue</td>
-                <td class="MyContent" style="width:160px;"><telerik:RadDatePicker ID="tbDateOfIsssue" runat="server" Width="140"></telerik:RadDatePicker></td>
+                <td class="MyContent" style="width:160px;"><telerik:RadDatePicker ID="txtDateOfIsssue" runat="server" Width="140"></telerik:RadDatePicker></td>
                 <td><table><tr>
                     <td class="MyLable" style="width:80px;">Place of Iss</td>
-                    <td class="MyContent"><telerik:RadTextBox ID="tbPlaceOfIss" runat="server" Width="160"></telerik:RadTextBox></td>
+                    <td class="MyContent"><telerik:RadTextBox ID="txtPlaceOfIss" runat="server" Width="160"></telerik:RadTextBox></td>
                 </tr></table></td>
             </tr>
             <tr>

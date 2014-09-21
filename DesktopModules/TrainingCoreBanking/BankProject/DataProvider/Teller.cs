@@ -173,5 +173,35 @@ namespace BankProject.DataProvider
             sqldata.ndkExecuteNonQuery("P_ForeignExchangeUpdateStatus", TTNo, Status, UserUpdate);
         }
         //
+        public static void WUXOOMCashAdvanceUpdate(string Command, string TTNo, string CustomerName, string CustomerAddress, string CustomerPassportNo,
+            string CustomerPassportDateOfIssue, string CustomerPassportPlaceOfIssue, string CustomerPhoneNo, string TellerID, string DebitCurrency,
+            string DebitAccount, double? DebitAmtLCY, double? DebitAmtFCY, string CreditCurrency, string CrTellerID, string CreditAccount, double? DealRate,
+            double? AmountPaid, string Narrative, string UserExecute)
+        {
+            sqldata.ndkExecuteNonQuery("P_WUXOOMCashAdvanceUpdate", Command, TTNo, CustomerName, CustomerAddress, CustomerPassportNo, CustomerPassportDateOfIssue,
+            CustomerPassportPlaceOfIssue, CustomerPhoneNo, TellerID, DebitCurrency, DebitAccount, DebitAmtLCY, DebitAmtFCY,
+            CreditCurrency, CrTellerID, CreditAccount, DealRate, AmountPaid, Narrative, UserExecute);
+        }
+        public static DataTable WUXOOMCashAdvanceDetailOrList(string Status)
+        {
+            return WUXOOMCashAdvanceDetailOrList(null, Status, null, null, null);
+        }
+        public static DataTable WUXOOMCashAdvanceDetailOrList(string TTNo, string Status)
+        {
+            return WUXOOMCashAdvanceDetailOrList(TTNo, Status, null, null, null);
+        }
+        public static DataTable WUXOOMCashAdvanceDetailOrList(string CustomerName, string PassportNo, string PhoneNo)
+        {
+            return WUXOOMCashAdvanceDetailOrList(null, null, CustomerName, PassportNo, PhoneNo);
+        }
+        private static DataTable WUXOOMCashAdvanceDetailOrList(string TTNo, string Status, string CustomerName, string PassportNo, string PhoneNo)
+        {
+            return sqldata.ndkExecuteDataset("P_WUXOOMCashAdvanceDetailOrList", TTNo, Status, CustomerName, PassportNo, PhoneNo).Tables[0];
+        }
+        public static void WUXOOMCashAdvanceUpdateStatus(string TTNo, string Status, string UserUpdate)
+        {
+            sqldata.ndkExecuteNonQuery("P_WUXOOMCashAdvanceUpdateStatus", TTNo, Status, UserUpdate);
+        }
+        //
     }
 }

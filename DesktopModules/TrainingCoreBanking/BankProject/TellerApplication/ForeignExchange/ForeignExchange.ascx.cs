@@ -35,12 +35,12 @@ namespace BankProject.Views.TellerApplication.ForeignExchange
                 }
                 DataRow dr = dt.Rows[0];
                 //
-                tbCustomerName.Text = dr["CustomerName"].ToString();
-                tbAddress.Text = dr["CustomerAddress"].ToString();
-                tbPassportNo.Text = dr["CustomerPassportNo"].ToString();
+                txtCustomerName.Text = dr["CustomerName"].ToString();
+                txtAddress.Text = dr["CustomerAddress"].ToString();
+                txtPassportNo.Text = dr["CustomerPassportNo"].ToString();
                 if (dr["CustomerPassportDateOfIssue"] != DBNull.Value && !String.IsNullOrEmpty(dr["CustomerPassportDateOfIssue"].ToString()))
-                    tbDateOfIsssue.SelectedDate = DateTime.ParseExact(dr["CustomerPassportDateOfIssue"].ToString(), "yyyyMMdd", CultureInfo.InvariantCulture);
-                tbPlaceOfIss.Text = dr["CustomerPassportPlaceOfIssue"].ToString();
+                    txtDateOfIsssue.SelectedDate = DateTime.ParseExact(dr["CustomerPassportDateOfIssue"].ToString(), "yyyyMMdd", CultureInfo.InvariantCulture);
+                txtPlaceOfIss.Text = dr["CustomerPassportPlaceOfIssue"].ToString();
                 txtPhoneNo.Text = dr["CustomerPhoneNo"].ToString();
                 //
                 txtTellerId.Text = dr["TellerID"].ToString();
@@ -115,10 +115,10 @@ namespace BankProject.Views.TellerApplication.ForeignExchange
                     try
                     {
                         string DateOfIsssue = "";
-                        if (tbDateOfIsssue.SelectedDate != null)
-                            DateOfIsssue = tbDateOfIsssue.SelectedDate.Value.ToString("yyyyMMdd");
+                        if (txtDateOfIsssue.SelectedDate != null)
+                            DateOfIsssue = txtDateOfIsssue.SelectedDate.Value.ToString("yyyyMMdd");
                         //                        
-                        bd.Teller.ForeignExchangeUpdate("new", txtId.Text, tbCustomerName.Text, tbAddress.Text, tbPassportNo.Text, DateOfIsssue, tbPlaceOfIss.Text, txtPhoneNo.Text,
+                        bd.Teller.ForeignExchangeUpdate("new", txtId.Text, txtCustomerName.Text, txtAddress.Text, txtPassportNo.Text, DateOfIsssue, txtPlaceOfIss.Text, txtPhoneNo.Text,
                             txtTellerId.Text, cboDebitCurrency.SelectedValue, cboDebitAccount.SelectedValue, txtDebitAmtLCY.Value, txtDebitAmtFCY.Value, cboCurrencyPaid.SelectedValue, 
                             txtCrTellerId.Text, cboCreditAccount.SelectedValue, txtDealRate.Value, txtAmountPaid.Value, txtNarrative.Text, this.UserInfo.Username);
                         bc.Commont.SetTatusFormControls(this.Controls, false);
