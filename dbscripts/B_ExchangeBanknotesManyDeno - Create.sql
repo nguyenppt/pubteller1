@@ -1,0 +1,25 @@
+CREATE TABLE [dbo].[B_ExchangeBanknotesManyDeno](
+	[TTNo] [varchar](50) NOT NULL,
+	[CustomerName] [nvarchar](150) NOT NULL,
+	[CustomerAddress] [nvarchar](150) NOT NULL,
+	[CustomerPassportNo] [varchar](50) NOT NULL,
+	[CustomerPassportDateOfIssue] [varchar](10) NULL,
+	[CustomerPassportPlaceOfIssue] [varchar](50) NULL,
+	[CustomerPhoneNo] [varchar](50) NULL,
+	[TellerID] [varchar](50) NOT NULL,
+	[DebitCurrency] [varchar](3) NOT NULL,
+	[DebitAccount] [varchar](50) NULL,
+	[DebitAmount] [decimal](18, 4) NULL,
+	[Narrative] [nvarchar](500) NULL,
+	[ValueDate] [datetime] NULL,
+	[CrTellerID] [nchar](10) NULL,
+	[CreditAccount] [varchar](50) NULL,
+	[ExchangeRate] [decimal](18, 4) NULL,
+	[AmountPaid] [decimal](18, 4) NULL,	
+	[Status] [varchar](3) NULL,
+	[UserCreate] [varchar](50) NOT NULL,
+	[DateTimeCreate] [datetime] NOT NULL,
+	[UserApprove] [varchar](50) NULL,
+	[DateTimeApprove] [datetime] NULL
+) ON [PRIMARY]
+
