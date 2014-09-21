@@ -841,6 +841,7 @@
     <Compile Include="DBRespository\CollorateRightRepository.cs" />
     <Compile Include="DBRespository\CustomerLimitSubRepository.cs" />
     <Compile Include="DBRespository\DBContextBase.cs" />
+    <Compile Include="DBRespository\InterestedRateRespository.cs" />
     <Compile Include="DBRespository\IOpenAccountRepository.cs" />
     <Compile Include="DBRespository\IRepositoryDB.cs" />
     <Compile Include="DBRespository\LoanGroupRepository.cs" />
