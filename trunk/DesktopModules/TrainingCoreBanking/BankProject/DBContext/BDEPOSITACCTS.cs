@@ -10,11 +10,11 @@
 namespace BankProject.DBContext
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class B_BRPODCATEGORY_GetAll_IdOver200_Result
+    public partial class BDEPOSITACCTS
     {
-        public string catid { get; set; }
-        public string CatName { get; set; }
-        public string Display { get; set; }
+        public long DepositAcctID { get; set; }
+        public string DepositAcctCode { get; set; }
     }
 }

@@ -89,5 +89,13 @@ namespace BankProject.DBContext
         public Nullable<System.DateTime> CancelLCDate { get; set; }
         public Nullable<System.DateTime> ContingentExpiryDate { get; set; }
         public string CancelRemark { get; set; }
+        public string CloseStatus { get; set; }
+        public string CloseBy { get; set; }
+        public Nullable<System.DateTime> CloseDate { get; set; }
+        public string CloseApproveBy { get; set; }
+        public Nullable<System.DateTime> CloseApproveDate { get; set; }
+        public string CloseGenerateDelivery { get; set; }
+        public string CloseExternalReference { get; set; }
+        public string CloseRemark { get; set; }
     }
 }

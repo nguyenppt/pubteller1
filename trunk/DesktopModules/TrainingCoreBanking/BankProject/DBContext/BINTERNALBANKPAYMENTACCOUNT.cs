@@ -17,5 +17,6 @@ namespace BankProject.DBContext
         public string CODE { get; set; }
         public string ACCOUNT { get; set; }
         public string Currency { get; set; }
+        public string Name { get; set; }
     }
 }

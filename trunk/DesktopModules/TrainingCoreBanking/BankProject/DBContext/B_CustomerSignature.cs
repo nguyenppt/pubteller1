@@ -21,5 +21,6 @@ namespace BankProject.DBContext
         public System.DateTime DateTimeCreate { get; set; }
         public string UserApprove { get; set; }
         public Nullable<System.DateTime> DateTimeApprove { get; set; }
+        public string SignaturesNew { get; set; }
     }
 }

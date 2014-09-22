@@ -55,5 +55,9 @@ namespace BankProject.DBContext
         public string SenderReceiverInfomation2 { get; set; }
         public string SenderReceiverInfomation3 { get; set; }
         public string SenderReceiverInfomation4 { get; set; }
+        public string ShipmentPeriod5 { get; set; }
+        public string ShipmentPeriod6 { get; set; }
+        public string SenderReceiverInfomation5 { get; set; }
+        public string SenderReceiverInfomation6 { get; set; }
     }
 }

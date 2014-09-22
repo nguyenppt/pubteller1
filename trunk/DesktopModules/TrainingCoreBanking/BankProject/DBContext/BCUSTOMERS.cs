@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCUSTOMER
+    public partial class BCUSTOMERS
     {
         public string CustomerID { get; set; }
         public string CustomerName { get; set; }

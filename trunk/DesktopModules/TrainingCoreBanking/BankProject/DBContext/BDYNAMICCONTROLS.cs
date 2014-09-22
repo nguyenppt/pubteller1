@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BDYNAMICCONTROL
+    public partial class BDYNAMICCONTROLS
     {
         public long DataControlID { get; set; }
         public Nullable<long> ModuleID { get; set; }

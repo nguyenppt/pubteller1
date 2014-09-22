@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class B_COUNTRY
+    public partial class BCOUNTRY
     {
         public string MaQuocGia { get; set; }
         public string TenTA { get; set; }
