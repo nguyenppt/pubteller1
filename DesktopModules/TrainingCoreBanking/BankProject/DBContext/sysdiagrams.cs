@@ -12,12 +12,12 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCONTINGENTACCOUNT
+    public partial class sysdiagrams
     {
-        public string ID { get; set; }
-        public string CollateralTypeCode { get; set; }
-        public string ContingentAcctID { get; set; }
-        public string Description { get; set; }
-        public string Currency { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

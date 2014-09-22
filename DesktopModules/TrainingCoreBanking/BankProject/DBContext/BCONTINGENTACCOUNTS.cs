@@ -10,10 +10,14 @@
 namespace BankProject.DBContext
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class BOPENACCOUNT_LOANACCOUNT_GetByCode_Result
+    public partial class BCONTINGENTACCOUNTS
     {
         public string ID { get; set; }
-        public string Display { get; set; }
+        public string CollateralTypeCode { get; set; }
+        public string ContingentAcctID { get; set; }
+        public string Description { get; set; }
+        public string Currency { get; set; }
     }
 }

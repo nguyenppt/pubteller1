@@ -65,5 +65,16 @@ namespace BankProject.DBContext
         public Nullable<System.DateTime> RejectDate { get; set; }
         public string RejectApproveBy { get; set; }
         public Nullable<System.DateTime> RejectApproveDate { get; set; }
+        public string AmendStatus { get; set; }
+        public string AmendBy { get; set; }
+        public Nullable<System.DateTime> AmendDate { get; set; }
+        public string AmendApproveBy { get; set; }
+        public Nullable<System.DateTime> AmendApproveDate { get; set; }
+        public string AcceptDrawType { get; set; }
+        public string AcceptStatus { get; set; }
+        public string AcceptBy { get; set; }
+        public Nullable<System.DateTime> AcceptDate { get; set; }
+        public string AcceptApproveBy { get; set; }
+        public Nullable<System.DateTime> AcceptApproveDate { get; set; }
     }
 }

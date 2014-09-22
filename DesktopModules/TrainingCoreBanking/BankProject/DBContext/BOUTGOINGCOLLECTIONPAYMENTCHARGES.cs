@@ -12,9 +12,9 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BINCOMINGCOLLECTIONPAYMENTCHARGE
+    public partial class BOUTGOINGCOLLECTIONPAYMENTCHARGES
     {
-        public long Id { get; set; }
+        public System.Guid Id { get; set; }
         public string CollectionPaymentCode { get; set; }
         public string WaiveCharges { get; set; }
         public string Chargecode { get; set; }
@@ -22,7 +22,7 @@ namespace BankProject.DBContext
         public string ChargePeriod { get; set; }
         public string ChargeCcy { get; set; }
         public string ExchRate { get; set; }
-        public Nullable<double> ChargeAmt { get; set; }
+        public string ChargeAmt { get; set; }
         public string PartyCharged { get; set; }
         public string OmortCharges { get; set; }
         public string AmtInLocalCCY { get; set; }
@@ -36,6 +36,5 @@ namespace BankProject.DBContext
         public string TaxinLCCYAmt { get; set; }
         public string TaxDate { get; set; }
         public string Rowchages { get; set; }
-        public Nullable<double> ChargeAmtFCY { get; set; }
     }
 }

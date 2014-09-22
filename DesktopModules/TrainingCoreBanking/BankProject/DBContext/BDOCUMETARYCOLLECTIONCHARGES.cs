@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BDOCUMETARYCOLLECTIONCHARGE
+    public partial class BDOCUMETARYCOLLECTIONCHARGES
     {
         public long DocCollectChargeID { get; set; }
         public string DocCollectCode { get; set; }

@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCHEQUESTATU
+    public partial class BCHEQUESTATUS
     {
         public string ID { get; set; }
         public string Description { get; set; }

@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BLOANWORKINGACCOUNT
+    public partial class BLOANWORKINGACCOUNTS
     {
         public string ID { get; set; }
         public string CustomerID { get; set; }

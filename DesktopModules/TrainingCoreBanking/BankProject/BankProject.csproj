@@ -58,15 +58,15 @@
     <Reference Include="DotNetNuke">
       <HintPath>..\..\..\bin\DotNetNuke.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Microsoft ADO.NET Entity Framework 4.1\Binaries\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\fpt\source\Quang Ninh\ThongKe\Deploy\bin\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Runtime.Serialization" />
@@ -109,21 +109,11 @@
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="Controls\DynamicControls.ascx" />
     <Content Include="Controls\PaymentMethodControl.ascx" />
-    <Content Include="DBContext\EntityDataModel.edmx.diagram">
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DBContext\EntityDataModel.tt">
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EntityDataModel1.cs</LastGenOutput>
-    </Content>
     <Content Include="InputCollateralInformation_Enquiry.ascx" />
     <Content Include="OpenCustomerAccountList.ascx" />
     <Content Include="TellerApplication\AccountManagement\CurrentNonTermSavingAC\SalaryPayment\PaymentFrequency.ascx" />
     <Content Include="TellerApplication\AccountManagement\CurrentNonTermSavingAC\SalaryPayment\SalaryPaymentEnquiry.ascx" />
     <Content Include="TellerApplication\AccountManagement\SavingsAC\Close\ListReviewDiscounted.ascx" />
-    <Content Include="TellerApplication\AccountManagement\SavingsAC\Enquiry\ArrearandPeriodic.ascx" />
-    <Content Include="TellerApplication\AccountManagement\SavingsAC\Enquiry\Discounted.ascx" />
     <Content Include="TellerApplication\AccountManagement\SavingsAC\Open\ListDiscounted.ascx" />
     <Content Include="TellerApplication\SignatureManagement\Amend.ascx" />
     <Content Include="TellerApplication\SignatureManagement\Capture.ascx" />
@@ -336,503 +326,386 @@
     <Compile Include="DataProvider\ThanhLP.cs" />
     <Compile Include="DataProvider\TransactionStatus.cs" />
     <Compile Include="DataProvider\TriTT.cs" />
-    <Compile Include="DBContext\BACCOUNT.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="DBContext\BACCOUNTOFFICER.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\BACCOUNTS.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BADVISINGANDNEGOTIATION.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BADVISINGANDNEGOTIATION_CHARGES.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BBANKCODE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BBANKING.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BBANKSWIFTCODE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BBANK_BRANCH.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BBENEFICIARYBANK.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCASHDEPOSIT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCASHWITHRAWAL.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCATEGORY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\BCATEGORY_COPY.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BCHARGECODE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCHEQUEISSUE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BCHEQUESTATU.cs">
+    <Compile Include="DBContext\BCHEQUESTATUS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCHEQUETYPE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLATERAL.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLATERALCONTINGENT_ENTRY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLATERALRIGHT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLATERAL_INFOMATION.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLATERAL_STATUS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLECTCHARGESBYCASH.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOLLECTCHARGESFROMACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOMMITMENT_CONTRACT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCOMMODITY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCONFIG.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BCONTINGENTACCOUNT.cs">
+    <Compile Include="DBContext\BCONTINGENTACCOUNTS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\BCOUNTRY.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BCRFROMACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCURRENCY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BCUSTOMER.cs">
+    <Compile Include="DBContext\BCUSTOMERS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCUSTOMER_INFO.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCUSTOMER_LIMIT_MAIN.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BCUSTOMER_LIMIT_SUB.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BDEPOSITACCT.cs">
+    <Compile Include="DBContext\BDEPOSITACCTS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BDOCUMETARYCOLLECTION.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BDOCUMETARYCOLLECTIONCHARGE.cs">
+    <Compile Include="DBContext\BDOCUMETARYCOLLECTIONCHARGES.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BDOCUMETARYCOLLECTIONMT410.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BDRAWTYPE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BDRFROMACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BDYNAMICCONTROL.cs">
+    <Compile Include="DBContext\BDYNAMICCONTROLS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BDYNAMICDATA.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BENCOM.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BENQUIRYCHECK.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BEXPORT_DOCUMETARYCOLLECTION.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BEXPORT_DOCUMETARYCOLLECTIONCHARGES.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BEXPORT_LC_ADV_NEGO.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BFOREIGNEXCHANGE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BFREETEXTMESSAGE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_DOCUMENTPROCESSING.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_DOCUMENTPROCESSING_CHARGE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_DOCUMENTPROCESSING_MT734.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_NORMAILLC.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_NORMAILLC_CHARGE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_NORMAILLC_MT700.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_NORMAILLC_MT707.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_NORMAILLC_MT740.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BIMPORT_NORMAILLC_MT747.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINCOMINGCOLLECTIONPAYMENT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BINCOMINGCOLLECTIONPAYMENTCHARGE.cs">
+    <Compile Include="DBContext\BINCOMINGCOLLECTIONPAYMENTCHARGES.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINCOMINGCOLLECTIONPAYMENTMT202.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINCOMINGCOLLECTIONPAYMENTMT400.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINDUSTRY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINTEREST_RATE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINTEREST_TERM.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINTERNALBANKACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BINTERNALBANKPAYMENTACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BLCTYPE.cs">
+    <Compile Include="DBContext\BLCTYPES.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BLDACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BLOANGROUP.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BLOANPURPOSE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BLOANWORKINGACCOUNT.cs">
+    <Compile Include="DBContext\BLOANWORKINGACCOUNTS.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BMACODE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BMENUTOP.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BNewLoanControl.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BNEWNORMALLOAN.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOPENACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOPENACCOUNT_COPY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOPENACCOUNT_INTEREST.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBContext\BOPENACCOUNT_INTEREST_GetByCode_Result.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBContext\BOPENACCOUNT_INTEREST_GetById_Result.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBContext\BOPENACCOUNT_INTERNAL_GetByCode_Result.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBContext\BOPENACCOUNT_LOANACCOUNT_GetByCode_Result.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOUTGOINGCOLLECTIONPAYMENT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\BOUTGOINGCOLLECTIONPAYMENTCHARGE.cs">
+    <Compile Include="DBContext\BOUTGOINGCOLLECTIONPAYMENTCHARGES.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOUTGOINGCOLLECTIONPAYMENTMT910.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOVERSEASTRANSFER.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOVERSEASTRANSFERCHARGECOMMISSION.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BOVERSEASTRANSFERMT103.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BPaymentFrequenceControl.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BPAYMENTMETHOD.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BPLACCOUNT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BPRODUCTLINE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\BPRODUCTLINE_COPY.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BPRODUCTTYPE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BPROVINCE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BRELATIONCODE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BRESTRICT_TXN.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BRPODCATEGORY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSalaryPaymentFrequency.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSalaryPaymentFrequencyDetail.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSalaryPaymentFrequencyTerm.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSalaryPaymentMethod.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSAVING_ACC_ARREAR.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSAVING_ACC_DISCOUNTED.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSAVING_ACC_INTEREST.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSAVING_ACC_PERIODIC.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSECTOR.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BSWIFTCODE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\BTRANSFERWITHDRAWAL.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\B_AccountForBuyingTC.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\B_BRPODCATEGORY_GetAll_IdOver200_Result.cs">
+    <Compile Include="DBContext\B_BuyTravellersCheque.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\B_CashWithrawalForBuyingTC.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBContext\B_COUNTRY.cs">
-      <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\B_CustomerSignature.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\B_DEBUG.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\B_ExchangeBanknotesManyDeno.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_ExchangeRates.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\B_ForeignExchange.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_ImportLCPayment.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\B_ImportLCPaymentCharge.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\B_SellTravellersCheque.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DBContext\B_WUXOOMCashAdvance.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\EntityDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\EntityDataModel.cs">
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DBContext\EntityDataModel.Designer.cs">
-      <DependentUpon>EntityDataModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DBContext\EntityDataModel1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBContext\EntityDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\PROVISIONTRANSFER_DC.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBContext\Sochu.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DBContext\sysdiagram.cs">
+    <Compile Include="DBContext\sysdiagrams.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
-      <SubType>Code</SubType>
     </Compile>
     <Compile Include="DBRespository\AccountOfficerRepository.cs" />
     <Compile Include="DBRespository\BaseRepository.cs" />
@@ -1083,20 +956,6 @@
     </Compile>
     <Compile Include="TellerApplication\AccountManagement\SavingsAC\Close\TellerTransactions\TellerTransactionsEnd.ascx.designer.cs">
       <DependentUpon>TellerTransactionsEnd.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="TellerApplication\AccountManagement\SavingsAC\Enquiry\ArrearandPeriodic.ascx.cs">
-      <DependentUpon>ArrearandPeriodic.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TellerApplication\AccountManagement\SavingsAC\Enquiry\ArrearandPeriodic.ascx.designer.cs">
-      <DependentUpon>ArrearandPeriodic.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="TellerApplication\AccountManagement\SavingsAC\Enquiry\Discounted.ascx.cs">
-      <DependentUpon>Discounted.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TellerApplication\AccountManagement\SavingsAC\Enquiry\Discounted.ascx.designer.cs">
-      <DependentUpon>Discounted.ascx</DependentUpon>
     </Compile>
     <Compile Include="TellerApplication\AccountManagement\SavingsAC\Open\Arrear.ascx.cs">
       <DependentUpon>Arrear.ascx</DependentUpon>
@@ -1836,17 +1695,26 @@
     <Folder Include="Report\Export\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DBContext\EntityDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>EntityDataModel.Context1.cs</LastGenOutput>
-      <DependentUpon>EntityDataModel.edmx</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <EntityDeploy Include="DBContext\EntityDataModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityDataModel1.Designer.cs</LastGenOutput>
+      <LastGenOutput>EntityDataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBContext\EntityDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>EntityDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBContext\EntityDataModel.edmx.diagram">
+      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DBContext\EntityDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityDataModel.edmx</DependentUpon>
+      <LastGenOutput>EntityDataModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="packages.config" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

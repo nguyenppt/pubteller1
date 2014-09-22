@@ -19,6 +19,7 @@ namespace BankProject.DBContext
         public string LCCode { get; set; }
         public string DrawType { get; set; }
         public double DrawingAmount { get; set; }
+        public string Currency { get; set; }
         public string DepositAccount { get; set; }
         public Nullable<double> ExchangeRate { get; set; }
         public string AmtDRFrAcctCcy { get; set; }
@@ -41,6 +42,5 @@ namespace BankProject.DBContext
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> AuthorizedDate { get; set; }
         public string AuthorizedBy { get; set; }
-        public string Currency { get; set; }
     }
 }

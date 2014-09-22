@@ -10,10 +10,12 @@
 namespace BankProject.DBContext
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class BOPENACCOUNT_INTERNAL_GetByCode_Result
+    public partial class BPRODUCTLINE_COPY
     {
-        public long ID { get; set; }
-        public string Display { get; set; }
+        public string ProductID { get; set; }
+        public string Description { get; set; }
+        public string Type { get; set; }
     }
 }

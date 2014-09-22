@@ -75,5 +75,8 @@ namespace BankProject.DBContext
         public Nullable<long> Amend_AuthorizedBy { get; set; }
         public Nullable<System.DateTime> Amend_AuthorizedDate { get; set; }
         public string Amend_Status { get; set; }
+        public string CollateralID_1 { get; set; }
+        public string CollateralID_2 { get; set; }
+        public string CollateralID_3 { get; set; }
     }
 }

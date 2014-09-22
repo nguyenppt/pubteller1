@@ -12,9 +12,11 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BDEPOSITACCT
+    public partial class BLCTYPES
     {
-        public long DepositAcctID { get; set; }
-        public string DepositAcctCode { get; set; }
+        public long LCTYPEID { get; set; }
+        public string LCTYPE { get; set; }
+        public string Description { get; set; }
+        public string Category { get; set; }
     }
 }
