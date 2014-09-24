@@ -1,4 +1,4 @@
-create proc [dbo].[P_ExchangeBanknotesManyDenoUpdate](
+alter proc [dbo].[P_ExchangeBanknotesManyDenoUpdate](
 	@Command varchar(10),
 	@TTNo varchar(50),
 	@CustomerName nvarchar(150),
@@ -16,7 +16,10 @@ create proc [dbo].[P_ExchangeBanknotesManyDenoUpdate](
 	@CrTellerID varchar(50),
 	@CreditAccount varchar(50),	
 	@ExchangeRate decimal(18, 4) ,
-	@AmountPaid decimal(18, 4) ,	
+	@AmountPaid decimal(18, 4) ,
+	@DenominationNum VARCHAR(MAX), 
+	@DenominationUnit VARCHAR(MAX),  
+	@DenominationRate  VARCHAR(MAX), 	
 	@UserExecute varchar(50)
 ) 
 as
@@ -25,12 +28,12 @@ begin
 	begin
 		insert into B_ExchangeBanknotesManyDeno(TTNo, CustomerName, CustomerAddress,	CustomerPassportNo,	CustomerPassportDateOfIssue,
 			CustomerPassportPlaceOfIssue, CustomerPhoneNo, TellerID, DebitCurrency, DebitAccount, DebitAmount, Narrative, ValueDate,
-			CrTellerID, CreditAccount, ExchangeRate, AmountPaid, [Status], UserCreate, DateTimeCreate)
+			CrTellerID, CreditAccount, ExchangeRate, AmountPaid, Denomination_Num, Denomination_Unit, Denomination_Rate, [Status], UserCreate, DateTimeCreate)
 		values(@TTNo, @CustomerName, @CustomerAddress,	@CustomerPassportNo,	@CustomerPassportDateOfIssue,
 			@CustomerPassportPlaceOfIssue, @CustomerPhoneNo, @TellerID, @DebitCurrency, @DebitAccount, @DebitAmount, @Narrative, @ValueDate,
-			@CrTellerID, @CreditAccount, @ExchangeRate, @AmountPaid, 'UNA', @UserExecute, getdate())	
+			@CrTellerID, @CreditAccount, @ExchangeRate, @AmountPaid, @DenominationNum, @DenominationUnit, @DenominationRate, 'UNA', @UserExecute, getdate())	
 	end
-	else
+	/*else
 	begin
 		update B_ExchangeBanknotesManyDeno
 		set CustomerName = @CustomerName, CustomerAddress = @CustomerAddress,	CustomerPassportNo = @CustomerPassportNo,	
@@ -40,5 +43,5 @@ begin
 			CreditAccount = @CreditAccount, ExchangeRate = @ExchangeRate, AmountPaid = @AmountPaid, 
 			UserCreate = @UserExecute, DateTimeCreate = getdate()
 		where TTNo = @TTNo and [Status] = 'UNA'
-	end
+	end*/
 end
