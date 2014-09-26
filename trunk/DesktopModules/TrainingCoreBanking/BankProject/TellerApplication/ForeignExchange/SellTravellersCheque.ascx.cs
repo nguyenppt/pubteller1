@@ -20,7 +20,7 @@ namespace BankProject.Views.TellerApplication.ForeignExchange
                 bc.Commont.initRadComboBox(ref rcbDrCurrency, "Title", "Value", tList);
                 //
                 bc.Commont.initRadComboBox(ref rcbDebitAccount, "Display", "Account", bd.Teller.InternalBankAccount());
-                bc.Commont.initRadComboBox(ref rcbCrAccount, "Display", "Id", bd.Teller.InternalBankPaymentAccount("11484"));
+                bc.Commont.initRadComboBox(ref rcbCrAccount, "Display", "Account", bd.Teller.InternalBankPaymentAccount("11484"));
             }
             catch (Exception err)
             {
