@@ -597,5 +597,65 @@ namespace BankProject.DataProvider
             return sqldata.ndkExecuteDataset("B_CHEQUE_RETURN_check_cheque_in_Returned",ChequeType, ChequeNo);
         }
         #endregion
+        #region COLLECTION FOR CREDIT CARD PAYMENT
+        public static DataSet COLLECTION_4_CRE_CARD_PAYMENT_LoadAcct(string Currency)
+        {
+            return sqldata.ndkExecuteDataset("COLLECTION_4_CRE_CARD_PAYMENT_LoadAcct", Currency);
+        }
+        public static void COLLECTION_4_CRE_CARD_PAYMENT_Insert_Update(string ID, string Status, string CustomerID, string CustomerName, string Address,
+            string LegalID, string IssueDate, string Telephone, string IssuePlace, string TellerID, string DebitCurrency, string DebitAccount, double DebitAmt
+            , string CreditCurrency, string CreditAccount, double DealRate, double CreditAmt, string CreditCardNum, string waiveCharge, string Narrative, string Narrative2)
+        {
+            sqldata.ndkExecuteNonQuery("COLLECTION_4_CRE_CARD_PAYMENT_Insert_Update", ID, Status, CustomerID, CustomerName, Address, LegalID, IssueDate==""? null: IssueDate, Telephone,
+                IssuePlace, TellerID, DebitCurrency, DebitAccount, DebitAmt, CreditCurrency, CreditAccount, DealRate, CreditAmt, CreditCardNum, waiveCharge, Narrative
+                , Narrative2);
+        }
+        public static DataSet COLLECTION_4_CRE_CARD_PAYMENT_Preview_List()
+        {
+            return sqldata.ndkExecuteDataset("COLLECTION_4_CRE_CARD_PAYMENT_Preview_List");
+        }
+        public static void COLLECTION_4_CRE_CARD_PAYMENT_Update_Status(string ID, string Status)
+        {
+            sqldata.ndkExecuteNonQuery("COLLECTION_4_CRE_CARD_PAYMENT_Update_Status", ID, Status);
+        }
+        public static DataSet COLLECTION_4_CRE_CARD_PAYMENT_Load_dataView(string ID)
+        {
+            return sqldata.ndkExecuteDataset("COLLECTION_4_CRE_CARD_PAYMENT_Load_dataView", ID);
+        }
+        public static DataSet COLLECTION_4_CRE_CARD_PAYMENT_Enquiry(string TypePayment, string ID, string DebitAccountID, string DebitCurrency, string CustomerID
+            , string CustomerName, string LegalID, double DebitFromAmt, double DebitToAmt)
+        {
+            return sqldata.ndkExecuteDataset("COLLECTION_4_CRE_CARD_PAYMENT_Enquiry", TypePayment, ID, DebitAccountID, DebitCurrency, CustomerID, CustomerName,
+                LegalID, DebitFromAmt, DebitToAmt);
+        }
+        #endregion
+        #region BTRANFER FOR CREDIT CARD PAYMENT
+        public static DataSet BTRANSFER_4_CRE_CARD_PAYMENT_Load_Acct_Info(string AccountId, string Currency)
+        {
+            return sqldata.ndkExecuteDataset("BTRANSFER_4_CRE_CARD_PAYMENT_Load_Acct_Info", AccountId, Currency);
+        }
+        public static void BTRANSFER_4_CRE_CARD_PAYMENT_Insert(string ID,string Status,string DebitCustomerID,string DebitCustomerName,string TellerID
+      ,string DebitCurrency,string DebitAccount,double? DebitAmt,double NextTransCom,double? OldBalance,double? NewBalance,string ValueDate
+      ,string CreditAccount,string CreditCurrency,double? CreditAmt,string ValueDate2,string CreditCardNumber
+      ,string WaiveCharges,string Narrative,string Narrative2)
+        {
+            sqldata.ndkExecuteNonQuery("BTRANSFER_4_CRE_CARD_PAYMENT_Insert", ID, Status, DebitCustomerID, DebitCustomerName, TellerID, DebitCurrency, DebitAccount
+                , DebitAmt==0 ? null:DebitAmt, NextTransCom, OldBalance==0 ? null: OldBalance, NewBalance==0? null: NewBalance, ValueDate == "" ? null : ValueDate, 
+                CreditAccount, CreditCurrency,
+                CreditAmt==0? null: CreditAmt, ValueDate2 == "" ? null : ValueDate2, CreditCardNumber, WaiveCharges, Narrative, Narrative2);
+        }
+        public static DataSet BTRANSFER_4_CRE_CARD_PAYMENT_Preview_List()
+        {
+            return sqldata.ndkExecuteDataset("BTRANSFER_4_CRE_CARD_PAYMENT_Preview_List");
+        }
+        public static DataSet BTRANSFER_4_CRE_CARD_PAYMENT_Load_detail_data(string ID)
+        {
+            return sqldata.ndkExecuteDataset("BTRANSFER_4_CRE_CARD_PAYMENT_Load_detail_data", ID);
+        }
+        public static void BTRANSFER_4_CRE_CARD_PAYMENT_UpdateStatus(string ID, string Status, string DebitAcountID, double DebitAmt, string Currency)
+        {
+            sqldata.ndkExecuteNonQuery("BTRANSFER_4_CRE_CARD_PAYMENT_UpdateStatus", ID, Status,DebitAcountID, DebitAmt,Currency);
+        }
+        #endregion
     }
 }

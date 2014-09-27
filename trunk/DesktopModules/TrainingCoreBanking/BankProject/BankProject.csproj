@@ -217,6 +217,7 @@
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment.ascx" />
     <Content Include="Views\TellerApplication\CollectChargesByCash.ascx" />
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx" />
+    <Content Include="Views\TellerApplication\CollectionForCreditCard_Enquiry.ascx" />
     <Content Include="Views\TellerApplication\DefineCustomerLimit.ascx" />
     <Content Include="Views\TellerApplication\DefineCustomerLimitSub.ascx" />
     <Content Include="Views\TellerApplication\DefineCustomerLimit_Enquiry.ascx" />
@@ -1489,6 +1490,13 @@
     </Compile>
     <Compile Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx.designer.cs">
       <DependentUpon>CollectionForCreditCardPayment_PL.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\CollectionForCreditCard_Enquiry.ascx.cs">
+      <DependentUpon>CollectionForCreditCard_Enquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\CollectionForCreditCard_Enquiry.ascx.designer.cs">
+      <DependentUpon>CollectionForCreditCard_Enquiry.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\DefineCustomerLimit.ascx.cs">
       <DependentUpon>DefineCustomerLimit.ascx</DependentUpon>
