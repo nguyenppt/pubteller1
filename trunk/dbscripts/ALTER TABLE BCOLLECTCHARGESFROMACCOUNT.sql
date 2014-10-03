@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[BCOLLECTCHARGESFROMACCOUNT] ADD CustomerID nvarchar(20) null, CustomerName nvarchar(250) null, Currency nvarchar(5) null
