@@ -226,7 +226,6 @@
     <Content Include="Views\TellerApplication\EnquiryAccountTransaction.ascx" />
     <Content Include="Views\TellerApplication\EnquiryCheque.ascx" />
     <Content Include="Views\TellerApplication\DCTransaction.ascx" />
-    <Content Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx" />
     <Content Include="Views\TellerApplication\OpenLoanWorkingAccount_PL.ascx" />
     <Content Include="Views\TellerApplication\OpenLoanWorkingAcct_Enquiry.ascx" />
     <Content Include="Views\TellerApplication\FTAccountClose.ascx" />
@@ -244,6 +243,7 @@
     <Content Include="Views\TellerApplication\UnBlockAccountListEmpty.ascx" />
     <Content Include="Views\TellerApplication\UnBlockAccountPreviewList.ascx" />
     <Content Include="Views\TellerApplication\ChequeTransferDrawnOnUs_PL.ascx" />
+    <Content Include="Views\TellerApplication\UnBlockAcct_Enquiry.ascx" />
     <Content Include="Views\TellerApplication\WebUserControl2.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1554,13 +1554,6 @@
     <Compile Include="Views\TellerApplication\DCTransaction.ascx.designer.cs">
       <DependentUpon>DCTransaction.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx.cs">
-      <DependentUpon>OpenLoanWorkingAccount.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount.ascx.designer.cs">
-      <DependentUpon>OpenLoanWorkingAccount.ascx</DependentUpon>
-    </Compile>
     <Compile Include="Views\TellerApplication\OpenLoanWorkingAccount_PL.ascx.cs">
       <DependentUpon>OpenLoanWorkingAccount_PL.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1679,6 +1672,13 @@
     </Compile>
     <Compile Include="Views\TellerApplication\ChequeTransferDrawnOnUs_PL.ascx.designer.cs">
       <DependentUpon>ChequeTransferDrawnOnUs_PL.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\UnBlockAcct_Enquiry.ascx.cs">
+      <DependentUpon>UnBlockAcct_Enquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\UnBlockAcct_Enquiry.ascx.designer.cs">
+      <DependentUpon>UnBlockAcct_Enquiry.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\WebUserControl2.ascx.cs">
       <DependentUpon>WebUserControl2.ascx</DependentUpon>

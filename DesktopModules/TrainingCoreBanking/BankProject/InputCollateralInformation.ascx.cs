@@ -52,15 +52,15 @@ namespace BankProject
                     string RightID = CollInfoID.Substring(0,10); 
                     var ProvisionValue = decimal.Parse(lblProvisionValue.Text  == "" ? "0" : lblProvisionValue.Text);
                     var AllocatedAmt = decimal.Parse(lblAllocatedAmt.Text == "" ? "0" : lblAllocatedAmt.Text);
-                    TriTT.B_COLLATERAL_INFO_Insert_Update(RightID, CollInfoID, rcbCollateralType.SelectedValue, rcbCollateralType.Text.Replace(rcbCollateralType.SelectedValue + " - ", "")
-                        , rcbCollateralCode.SelectedValue, rcbCollateralCode.Text.Replace(rcbCollateralCode.SelectedValue+" - ", ""),rcbContingentAcct.SelectedValue
-                        ,rcbContingentAcct.SelectedItem.Text.Replace(rcbContingentAcct.SelectedValue+" - ",""),tbDescription.Text
-                        , tbAddress.Text, rcbCollateralStatus.SelectedValue, rcbCollateralStatus.Text.Replace(rcbCollateralStatus.SelectedValue+" - ", ""),
-                        tbCustomerIDName.Text.Trim().Substring(0, 7), tbCustomerIDName.Text, tbNotes.Text, rcbCompanyStorage.SelectedValue, rcbCompanyStorage.SelectedItem.Text.Replace(rcbCompanyStorage.SelectedValue+" - ", "")
-                        ,rcbProductLimit.SelectedValue , rcbCurrency.SelectedValue, rcbCountry.SelectedValue, rcbCountry.SelectedItem.Text.Replace(rcbCountry.SelectedValue+" - ",""),
-                        Convert.ToDecimal(tbNominalValue.Value.HasValue? tbNominalValue.Value : 0),Convert.ToDecimal( tbMaxValue.Value.HasValue? tbMaxValue.Value : 0),ProvisionValue ,
-                        Convert.ToDecimal( tbExeValue.Value.HasValue? tbExeValue.Value:0),
-                        AllocatedAmt, rdpValueDate.SelectedDate, rdpExpiryDate.SelectedDate, rdpReviewDate.SelectedDate, UserInfo.Username.ToString());
+                    //TriTT.B_COLLATERAL_INFO_Insert_Update(RightID, CollInfoID, rcbCollateralType.SelectedValue, rcbCollateralType.Text.Replace(rcbCollateralType.SelectedValue + " - ", "")
+                    //    , rcbCollateralCode.SelectedValue, rcbCollateralCode.Text.Replace(rcbCollateralCode.SelectedValue+" - ", ""),rcbContingentAcct.SelectedValue
+                    //    ,rcbContingentAcct.SelectedItem.Text.Replace(rcbContingentAcct.SelectedValue+" - ",""),tbDescription.Text
+                    //    , tbAddress.Text, rcbCollateralStatus.SelectedValue, rcbCollateralStatus.Text.Replace(rcbCollateralStatus.SelectedValue+" - ", ""),
+                    //    tbCustomerIDName.Text.Trim().Substring(0, 7), tbCustomerIDName.Text, tbNotes.Text, rcbCompanyStorage.SelectedValue, rcbCompanyStorage.SelectedItem.Text.Replace(rcbCompanyStorage.SelectedValue+" - ", "")
+                    //    ,rcbProductLimit.SelectedValue , rcbCurrency.SelectedValue, rcbCountry.SelectedValue, rcbCountry.SelectedItem.Text.Replace(rcbCountry.SelectedValue+" - ",""),
+                    //    Convert.ToDecimal(tbNominalValue.Value.HasValue? tbNominalValue.Value : 0),Convert.ToDecimal( tbMaxValue.Value.HasValue? tbMaxValue.Value : 0),ProvisionValue ,
+                    //    Convert.ToDecimal( tbExeValue.Value.HasValue? tbExeValue.Value:0),
+                    //    AllocatedAmt, rdpValueDate.SelectedDate, rdpExpiryDate.SelectedDate, rdpReviewDate.SelectedDate, UserInfo.Username.ToString());
                     TriTT.B_CONTINGENT_ENTRY_Insert_Update(CollInfoID, tbContingentEntryID.Text, tbCustomerIDName_Cont.Text.Substring(0, 7), tbAddress_cont.Text, tbIDTaxCode.Text
                         , tbDateOfIssue.Text == "" ? "" : tbDateOfIssue.Text, rcbTransactionCode.SelectedValue, rcbTransactionCode.Text.Replace(rcbTransactionCode.SelectedValue + " - ", "")
                         , rcbDebitOrCredit.SelectedValue, rcbDebitOrCredit.Text.Replace(rcbDebitOrCredit.SelectedValue + " - ", ""), rcbCurrency.SelectedValue,

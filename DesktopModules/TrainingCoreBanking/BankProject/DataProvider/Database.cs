@@ -143,6 +143,10 @@ namespace BankProject.DataProvider
         {
             return sqldata.ndkExecuteDataset("BOPENACCOUNT_Search", AccountCode, Locked, CustomerType, CustomerID, CustomerName, docid, category, currency, ProductLine);
         }
+        public static DataSet BOPENACCOUNT_Search_BLocked_Acct(string AccountCode, bool Locked, string CustomerType, string CustomerID, string CustomerName, string docid, string category, string currency, string ProductLine)
+        {
+            return sqldata.ndkExecuteDataset("BOPENACCOUNT_Search_BLocked_Acct", AccountCode, Locked, CustomerType, CustomerID, CustomerName, docid, category, currency, ProductLine);
+        }
         public static DataSet BOPENACCOUNT_Enquiry(string AccountCode, bool Locked, bool Close, string CustomerType, string CustomerID, string CustomerName, string docid, string category, string currency, string ProductLine)
         {
             return sqldata.ndkExecuteDataset("BOPENACCOUNT_Enquiry", AccountCode, Locked, Close, CustomerType, CustomerID, CustomerName, docid, category, currency, ProductLine);
@@ -262,9 +266,10 @@ namespace BankProject.DataProvider
             return sqldata.ndkExecuteDataset("BOPENACCOUNT_BLOCK_GetByCode", code);
         }
 
-        public static void BOPENACCOUNT_BLOCK_Update(string AccountCode, double Block_Amount, DateTime? Block_FromDate, DateTime? Block_ToDate, string Block_Description)
+        public static void BOPENACCOUNT_BLOCK_Update(string AccountCode, double Block_Amount, DateTime? Block_FromDate, DateTime? Block_ToDate, string Block_Description
+                    ,bool BlockAccount )
         {
-            sqldata.ndkExecuteNonQuery("BOPENACCOUNT_BLOCK_Update", AccountCode, Block_Amount, Block_FromDate, Block_ToDate, Block_Description);
+            sqldata.ndkExecuteNonQuery("BOPENACCOUNT_BLOCK_Update", AccountCode, Block_Amount, Block_FromDate, Block_ToDate, Block_Description, BlockAccount);
         }
         #endregion
 
@@ -274,9 +279,9 @@ namespace BankProject.DataProvider
             return sqldata.ndkExecuteDataset("BOPENACCOUNT_UnBLOCK_GetbyStatus", Status, UserID);
         }
 
-        public static void BOPENACCOUNT_UnBLOCK_UpdateStatus(string Status, string NormalLCCode, string userid)
+        public static void BOPENACCOUNT_UnBLOCK_UpdateStatus(string Status, string NormalLCCode, string userid, bool BlockAccount_temp)
         {
-            sqldata.ndkExecuteNonQuery("BOPENACCOUNT_UnBLOCK_UpdateStatus", Status, NormalLCCode, userid);
+            sqldata.ndkExecuteNonQuery("BOPENACCOUNT_UnBLOCK_UpdateStatus", Status, NormalLCCode, userid, BlockAccount_temp);
         }
 
         public static DataSet BOPENACCOUNT_UnBLOCK_GetByID(int id)
@@ -476,11 +481,14 @@ namespace BankProject.DataProvider
             sqldata.ndkExecuteNonQuery("BCOLLECTCHARGESFROMACCOUNT_UpdateStatus", AccountType, Status, NormalLCCode, userid);
         }
 
-        public static DataSet BCOLLECTCHARGESFROMACCOUNT_GetByID(int id)
+        public static DataSet BCOLLECTCHARGESFROMACCOUNT_GetByID(int  Code)
         {
-            return sqldata.ndkExecuteDataset("BCOLLECTCHARGESFROMACCOUNT_GetByID", id);
+            return sqldata.ndkExecuteDataset("BCOLLECTCHARGESFROMACCOUNT_GetByID", Code);
         }
-
+        public static DataSet BCOLLECTCHARGESFROMACCOUNT_GetByCodeDebit(string Code)
+        {
+            return sqldata.ndkExecuteDataset("BCOLLECTCHARGESFROMACCOUNT_GetByCodeDebit", Code);
+        }
         public static DataSet BCOLLECTCHARGESFROMACCOUNT_Print_GetByCode(string code)
         {
             return sqldata.ndkExecuteDataset("BCOLLECTCHARGESFROMACCOUNT_Print_GetByCode", code);
@@ -493,10 +501,10 @@ namespace BankProject.DataProvider
 		
         public static void BCOLLECTCHARGESFROMACCOUNT_Insert(string AccountType, string Code, string CustomerAccount, double ChargAmountLCY, double ChargAmountFCY, DateTime? ValueDate, string CategoryPLCode,
                                             string CategoryPLName, double DealRate, double VatAmountLCY, double VatAmountFCY, double TotalAmountLCY, double TotalAmountFCY, string VatSerialNo, string Narrative, int UserId
-    )
+                                                ,string CustomerID, string CustomerName, string Currency)
         {
             sqldata.ndkExecuteNonQuery("BCOLLECTCHARGESFROMACCOUNT_Insert", AccountType, Code, CustomerAccount, ChargAmountLCY, ChargAmountFCY, ValueDate, CategoryPLCode, CategoryPLName, DealRate,
-                                    VatAmountLCY, VatAmountFCY, TotalAmountLCY, TotalAmountFCY, VatSerialNo, Narrative, UserId);
+                                    VatAmountLCY, VatAmountFCY, TotalAmountLCY, TotalAmountFCY, VatSerialNo, Narrative, UserId, CustomerID,CustomerName,Currency);
         }
         #endregion
 		
