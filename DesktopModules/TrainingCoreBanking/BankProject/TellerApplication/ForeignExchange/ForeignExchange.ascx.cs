@@ -73,7 +73,7 @@ namespace BankProject.Views.TellerApplication.ForeignExchange
                 if (dr["AmountPaid"] != DBNull.Value)
                     txtAmountPaid.Value = Convert.ToDouble(dr["AmountPaid"]);
                 //
-                txtNarrative.Text = dr["Narrative"].ToString();
+                ((bc.MultiTextBox)txtNarrative).setText(dr["Narrative"].ToString(), true);
                 //
                 bc.Commont.SetTatusFormControls(this.Controls, false);
                 //
@@ -119,8 +119,8 @@ namespace BankProject.Views.TellerApplication.ForeignExchange
                             DateOfIsssue = txtDateOfIsssue.SelectedDate.Value.ToString("yyyyMMdd");
                         //                        
                         bd.Teller.ForeignExchangeUpdate("new", txtId.Text, txtCustomerName.Text, txtAddress.Text, txtPassportNo.Text, DateOfIsssue, txtPlaceOfIss.Text, txtPhoneNo.Text,
-                            txtTellerId.Text, cboDebitCurrency.SelectedValue, cboDebitAccount.SelectedValue, txtDebitAmtLCY.Value, txtDebitAmtFCY.Value, cboCurrencyPaid.SelectedValue, 
-                            txtCrTellerId.Text, cboCreditAccount.SelectedValue, txtDealRate.Value, txtAmountPaid.Value, txtNarrative.Text, this.UserInfo.Username);
+                            txtTellerId.Text, cboDebitCurrency.SelectedValue, cboDebitAccount.SelectedValue, txtDebitAmtLCY.Value, txtDebitAmtFCY.Value, cboCurrencyPaid.SelectedValue,
+                            txtCrTellerId.Text, cboCreditAccount.SelectedValue, txtDealRate.Value, txtAmountPaid.Value, ((bc.MultiTextBox)txtNarrative).getText(), this.UserInfo.Username);
                         bc.Commont.SetTatusFormControls(this.Controls, false);
                         bc.Commont.ShowClientMessageBox(Page, this.GetType(), "Save data success !", "Default.aspx?TabId=" + TabId);
                     }
