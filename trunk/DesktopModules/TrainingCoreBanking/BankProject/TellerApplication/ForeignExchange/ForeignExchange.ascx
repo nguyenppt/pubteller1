@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ForeignExchange.ascx.cs" Inherits="BankProject.Views.TellerApplication.ForeignExchange.ForeignExchange" %>
+<%@ Register Src="~/DesktopModules/TrainingCoreBanking/BankProject/Controls/MultiTextBox.ascx" TagPrefix="uc1" TagName="MultiTextBox" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <telerik:RadWindowManager ID="RadWindowManager1" runat="server" EnableShadow="true"> </telerik:RadWindowManager>
 <asp:ValidationSummary ID="ValidationSummary1" runat="server" ShowMessageBox="True" ShowSummary="False" ValidationGroup="Commit"  />
@@ -247,7 +248,7 @@
             <tr>
                 <td class="MyLable">Deal Rate</td>
                 <td class="MyContent">
-                    <telerik:RadNumericTextBox ID="txtDealRate" runat="server" />
+                    <telerik:RadNumericTextBox ID="txtDealRate" runat="server" ClientEvents-OnValueChanged ="txtDealRate_OnValueChanged" ><NumberFormat AllowRounding="false" DecimalDigits="10" /></telerik:RadNumericTextBox>
                 </td>
                 <td></td>
             </tr>
@@ -261,15 +262,7 @@
         </table>
         <hr />
         <table width="100%" cellpadding="0" cellspacing="0">
-            <tr>
-                <td class="MyLable">Narrative</td>
-                <td class="MyContent" style="width:350px; ">
-                    <telerik:RadTextBox ID="txtNarrative" Width="350"
-                        runat="server"  />
-                </td>
-                <td><a class="add">
-                    <img src="Icons/Sigma/Add_16X16_Standard.png"></a></td>
-            </tr>
+            <tr><td><uc1:MultiTextBox runat="server" id="txtNarrative" Label="Narrative" /></td></tr>
         </table>
     </div>
     <div id="dvAudit" runat="server">
@@ -324,42 +317,6 @@
 </div>
 <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
 <script type="text/javascript">
-    $(document).ready(
-    function () {
-        $('a.add').live('click',
-            function () {
-                $(this)
-                    .html('<img src="Icons/Sigma/Delete_16X16_Standard.png" />')
-                    .removeClass('add')
-                    .addClass('remove')
-                ;
-                $(this)
-                    .closest('tr')
-                    .clone()
-                    .appendTo($(this).closest('table'));
-                $(this)
-                    .html('<img src="Icons/Sigma/Add_16X16_Standard.png" />')
-                    .removeClass('remove')
-                    .addClass('add');
-            });
-        $('a.remove').live('click',
-            function () {
-                $(this)
-                    .closest('tr')
-                    .remove();
-            });
-        $('input:text').each(
-            function () {
-                var thisName = $(this).attr('name'),
-                    thisRrow = $(this)
-                                .closest('tr')
-                                .index();
-                $(this).attr('name', 'row' + thisRow + thisName);
-                $(this).attr('id', 'row' + thisRow + thisName);
-            });
-
-    });
-
     function OnClientButtonClicking(sender, args) {
         var button = args.get_item();
         var ttNo = $('#<%= txtId.ClientID%>').val();
@@ -369,20 +326,58 @@
         if (button.get_commandName() == "<%=BankProject.Controls.Commands.Search%>") {
             window.location = '<%=EditUrl("list")%>';
         }
-
+        if (button.get_commandName() == '<%=BankProject.Controls.Commands.Commit%>') {
+            try {
+                <%=((BankProject.Controls.MultiTextBox)txtNarrative).getJSFunction() + "();"%>
+            } catch (e) {
+            }
+        }
     }
 
     function cboDebitCurrency_OnClientSelectedIndexChanged(sender, eventArgs) {
+        var debtCur = $find("<%=cboDebitCurrency.ClientID%>").get_text();
+        //
+        var objAmtLCY = $find("<%=txtDebitAmtLCY.ClientID%>");
+        objAmtLCY._textBoxElement.readOnly = (debtCur != "VND");
+        var objAmtLCYParent = $("#<%=txtDebitAmtLCY.ClientID%>").parent().parent().parent();
+        objAmtLCYParent.removeClass('labelDisabled');
+        if (objAmtLCY._textBoxElement.readOnly)
+            objAmtLCYParent.addClass('labelDisabled');
+        //
+        var objAmtFCY = $find("<%=txtDebitAmtFCY.ClientID%>");
+        objAmtFCY._textBoxElement.readOnly = (debtCur == "VND");
+        var objAmtFCYParent = $("#<%=txtDebitAmtFCY.ClientID%>").parent().parent().parent();
+        objAmtFCYParent.removeClass('labelDisabled');
+        if (objAmtFCY._textBoxElement.readOnly)
+            objAmtFCYParent.addClass('labelDisabled');
+        //
+        if (debtCur == "VND") {
+            objAmtFCY.set_value(0);
+        }
         calculateAmountPaid();
     }
+
+    $(document).on("keypress", "#<%=txtDebitAmtLCY.ClientID%>", function (event) {
+        if (event.keyCode == 13) {
+            calculateAmountPaid();
+        }
+    });
+    $(document).on("keypress", "#<%=txtDebitAmtFCY.ClientID%>", function (event) {
+        if (event.keyCode == 13) {
+            calculateAmountPaid();
+        }
+    });
 
     function cboCurrencyPaid_OnClientSelectedIndexChanged(sender, eventArgs) {
         calculateAmountPaid();
     }
 
     function txtDebitAmtFCY_OnValueChanged() {
-        calculateAmountPaid();
+        //calculateAmountPaid();
     }
+    function txtDealRate_OnValueChanged() {
+        calculateAmountPaid();
+    }    
 
     function calculateAmountPaid() {
         var objAmtLCY = $find("<%= txtDebitAmtLCY.ClientID%>");
@@ -394,8 +389,12 @@
             return;
         }
         var CurDebitRate = Number(objCurDebit.get_value().split('#')[1]);
-        var DebitAmount = Number($find("<%= txtDebitAmtFCY.ClientID%>").get_value());
-        objAmtLCY.set_value(DebitAmount * CurDebitRate);
+        var DebitAmount = 0;
+        if (objCurDebit.get_text() != 'VND') {
+            DebitAmount = Number($find("<%= txtDebitAmtFCY.ClientID%>").get_value());
+            objAmtLCY.set_value(DebitAmount * CurDebitRate);
+        }
+        DebitAmount = objAmtLCY.get_value();
         //
         var objCurPaid = $find("<%= cboCurrencyPaid.ClientID%>");
         if (objCurPaid.get_text() == '') {
@@ -403,10 +402,15 @@
             return;
         }
         //        
-        var CurPaidRate = Number(objCurPaid.get_value().split('#')[1]);
-        var DealRate = CurDebitRate / CurPaidRate;
-        $find("<%= txtDealRate.ClientID%>").set_value(DealRate);        
-        objAmtPaid.set_value(DebitAmount * DealRate);
+        //var CurPaidRate = Number(objCurPaid.get_value().split('#')[1]);
+        var dealRate = $find("<%= txtDealRate.ClientID%>").get_value();
+        //alert(DebitAmount + '/' + dealRate);
+        if (dealRate != '') {
+            objAmtPaid.set_value(DebitAmount / dealRate);
+        }
+        else {
+            objAmtPaid.set_value();
+        }
     }
 
   </script>
