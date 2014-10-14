@@ -160,30 +160,51 @@
                         ControlToValidate="cboDebitCurrency"
                         ValidationGroup="Commit"
                         InitialValue=""
-                        ErrorMessage="TC Currency is Required" ForeColor="Red">
+                        ErrorMessage="Debit Currency is Required" ForeColor="Red">
                     </asp:RequiredFieldValidator></td>
             </tr>
             <tr>
-                <td class="MyLable">Debit Account</td>
+                <td class="MyLable">Debit Account <span class="Required">(*)</span></td>
                 <td class="MyContent" >
                     <telerik:RadComboBox ID="cboDebitAccount"                        
                         MarkFirstMatch="True"
                         AllowCustomText="false"
                         runat="server" >                       
                     </telerik:RadComboBox> <asp:Label ID="lblDebitAccount" runat="server"></asp:Label></td>             
-                <td></td>
+                <td><asp:RequiredFieldValidator
+                        runat="server" Display="None"
+                        ID="RequiredFieldValidator2"
+                        ControlToValidate="cboDebitAccount"
+                        ValidationGroup="Commit"
+                        InitialValue=""
+                        ErrorMessage="Debit Account is Required" ForeColor="Red">
+                    </asp:RequiredFieldValidator></td>
             </tr>
             <tr class="labelDisabled">
-                <td class="MyLable">Debit Amt LCY</td>
+                <td class="MyLable">Debit Amt LCY <span class="Required">(*)</span></td>
                 <td class="MyContent">
                     <telerik:RadNumericTextBox ID="txtDebitAmtLCY" runat="server" ReadOnly="true" />
                 </td>
-                <td></td>
+                <td><asp:RequiredFieldValidator
+                        runat="server" Display="None"
+                        ID="RequiredFieldValidator3"
+                        ControlToValidate="txtDebitAmtLCY"
+                        ValidationGroup="Commit"
+                        InitialValue=""
+                        ErrorMessage="Debit Amt LCY is Required" ForeColor="Red">
+                    </asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td class="MyLable">Debit Amt FCY</td>
                 <td class="MyContent">
-                    <telerik:RadNumericTextBox ID="txtDebitAmtFCY" runat="server" ClientEvents-OnValueChanged ="txtDebitAmtFCY_OnValueChanged" />
+                    <telerik:RadNumericTextBox ID="txtDebitAmtFCY" runat="server" />
+                </td>
+                <td></td>
+            </tr>
+            <tr class="labelDisabled">
+                <td class="MyLable">Debit Deal Rate</td>
+                <td class="MyContent">
+                    <telerik:RadNumericTextBox ID="txtDebitDealRate" runat="server" ReadOnly="true" ><NumberFormat AllowRounding="false" DecimalDigits="10" /></telerik:RadNumericTextBox>
                 </td>
                 <td></td>
             </tr>
@@ -191,8 +212,7 @@
          <hr />
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
-               <td class="MyLable">Currency Paid <span class="Required">(*)</span>
-                    </td>
+               <td class="MyLable">Currency Paid <span class="Required">(*)</span></td>
                 <td class="MyContent">
                     <telerik:RadComboBox ID="cboCurrencyPaid"
                         MarkFirstMatch="True"
@@ -222,16 +242,12 @@
             </tr>
             <tr>
                 <td class="MyLable">Teller ID</td>
-                <td class="MyContent">
-                    <telerik:RadTextBox ID="txtCrTellerId"
-                        runat="server">
-                    </telerik:RadTextBox>
-                </td>
+                <td class="MyContent"><telerik:RadTextBox ID="txtCrTellerId" runat="server"></telerik:RadTextBox></td>
                 <td></td>
             </tr>
             <tr>
-                <td class="MyLable">Credit Account</td>
-                <td class="MyContent" style="width:160px">
+                <td class="MyLable">Credit Account <span class="Required">(*)</span></td>
+                <td class="MyContent">
                     <telerik:RadComboBox ID="cboCreditAccount"
                         MarkFirstMatch="True"
                         AllowCustomText="false"
@@ -243,12 +259,19 @@
                         </Items>
                     </telerik:RadComboBox>
                 </td>
-                <td><asp:Label ID="lbCrAccount" runat="server"></asp:Label></td>
+                <td><asp:RequiredFieldValidator
+                        runat="server" Display="None"
+                        ID="RequiredFieldValidator4"
+                        ControlToValidate="cboCreditAccount"
+                        ValidationGroup="Commit"
+                        InitialValue=""
+                        ErrorMessage="Credit Account is Required" ForeColor="Red">
+                    </asp:RequiredFieldValidator></td>
             </tr>            
             <tr>
-                <td class="MyLable">Deal Rate</td>
+                <td class="MyLable">Credit Deal Rate</td>
                 <td class="MyContent">
-                    <telerik:RadNumericTextBox ID="txtDealRate" runat="server" ClientEvents-OnValueChanged ="txtDealRate_OnValueChanged" ><NumberFormat AllowRounding="false" DecimalDigits="10" /></telerik:RadNumericTextBox>
+                    <telerik:RadNumericTextBox ID="txtCreditDealRate" runat="server" ><NumberFormat AllowRounding="false" DecimalDigits="10" /></telerik:RadNumericTextBox>
                 </td>
                 <td></td>
             </tr>
@@ -327,6 +350,15 @@
             window.location = '<%=EditUrl("list")%>';
         }
         if (button.get_commandName() == '<%=BankProject.Controls.Commands.Commit%>') {
+            args.set_cancel(true);
+            //
+            var debtCur = $find("<%=cboDebitCurrency.ClientID%>").get_text();
+            var creditCur = $find("<%=cboCurrencyPaid.ClientID%>").get_text();
+            if (debtCur == creditCur) {
+                alert('"Debit Currency" must different with "Currency Paid"');
+                return;
+            }
+            args.set_cancel(false);
             try {
                 <%=((BankProject.Controls.MultiTextBox)txtNarrative).getJSFunction() + "();"%>
             } catch (e) {
@@ -334,27 +366,38 @@
         }
     }
 
-    function cboDebitCurrency_OnClientSelectedIndexChanged(sender, eventArgs) {
-        var debtCur = $find("<%=cboDebitCurrency.ClientID%>").get_text();
-        //
+    function cboDebitCurrency_OnClientSelectedIndexChanged(sender, eventArgs) {        
+        var objdebtCur = $find("<%=cboDebitCurrency.ClientID%>");
         var objAmtLCY = $find("<%=txtDebitAmtLCY.ClientID%>");
-        objAmtLCY._textBoxElement.readOnly = (debtCur != "VND");
-        var objAmtLCYParent = $("#<%=txtDebitAmtLCY.ClientID%>").parent().parent().parent();
-        objAmtLCYParent.removeClass('labelDisabled');
-        if (objAmtLCY._textBoxElement.readOnly)
-            objAmtLCYParent.addClass('labelDisabled');
-        //
         var objAmtFCY = $find("<%=txtDebitAmtFCY.ClientID%>");
-        objAmtFCY._textBoxElement.readOnly = (debtCur == "VND");
-        var objAmtFCYParent = $("#<%=txtDebitAmtFCY.ClientID%>").parent().parent().parent();
-        objAmtFCYParent.removeClass('labelDisabled');
-        if (objAmtFCY._textBoxElement.readOnly)
-            objAmtFCYParent.addClass('labelDisabled');
-        //
-        if (debtCur == "VND") {
-            objAmtFCY.set_value(0);
+        var objDebtRate = $find("<%=txtDebitDealRate.ClientID%>");
+        var objCreditRate = $find("<%=txtCreditDealRate.ClientID%>");
+        if (objdebtCur.get_text() == "VND") {
+            setReadOnly(objAmtLCY, false);
+            setReadOnly(objAmtFCY, true);
+            objAmtFCY.set_value();
+            setReadOnly(objDebtRate, false);
+            setReadOnly(objCreditRate, true);
+            objCreditRate.set_value();
+        }
+        else {
+            setReadOnly(objAmtLCY, true);
+            objAmtLCY.set_value();
+            setReadOnly(objAmtFCY, false);
+            setReadOnly(objDebtRate, true);
+            objDebtRate.set_value();
+            setReadOnly(objCreditRate, false);
         }
         calculateAmountPaid();
+    }
+
+    function setReadOnly(ctr, readOnly) {
+        var cssLabelDisabled = 'labelDisabled';
+        ctr._textBoxElement.readOnly = readOnly;
+        var objParent = $("#" + ctr.get_id()).parent().parent().parent();
+        objParent.removeClass(cssLabelDisabled);
+        if (ctr._textBoxElement.readOnly)
+            objParent.addClass(cssLabelDisabled);
     }
 
     $(document).on("keypress", "#<%=txtDebitAmtLCY.ClientID%>", function (event) {
@@ -367,48 +410,48 @@
             calculateAmountPaid();
         }
     });
+    $(document).on("keypress", "#<%=txtDebitDealRate.ClientID%>", function (event) {
+        if (event.keyCode == 13) {
+            calculateAmountPaid();
+        }
+    });
+    $(document).on("keypress", "#<%=txtCreditDealRate.ClientID%>", function (event) {
+        if (event.keyCode == 13) {
+            calculateAmountPaid();
+        }
+    });
 
     function cboCurrencyPaid_OnClientSelectedIndexChanged(sender, eventArgs) {
-        calculateAmountPaid();
-    }
-
-    function txtDebitAmtFCY_OnValueChanged() {
         //calculateAmountPaid();
     }
-    function txtDealRate_OnValueChanged() {
-        calculateAmountPaid();
-    }    
 
     function calculateAmountPaid() {
-        var objAmtLCY = $find("<%= txtDebitAmtLCY.ClientID%>");
+        var objdebtCur = $find("<%=cboDebitCurrency.ClientID%>");
+        var objAmtLCY = $find("<%=txtDebitAmtLCY.ClientID%>");
+        var objAmtFCY = $find("<%=txtDebitAmtFCY.ClientID%>");
+        var objDebtRate = $find("<%=txtDebitDealRate.ClientID%>");
+        var objCreditRate = $find("<%=txtCreditDealRate.ClientID%>");
         var objAmtPaid = $find("<%= txtAmountPaid.ClientID%>");
-        var objCurDebit = $find("<%= cboDebitCurrency.ClientID%>");
-        if (objCurDebit.get_text() == '') {
-            objAmtLCY.set_value();
+        if (objdebtCur.get_text() == "VND") {
+            if (objAmtLCY.get_value() != '') {
+                if (objDebtRate.get_value() != '') {
+                    objAmtFCY.set_value(objAmtLCY.get_value() / objDebtRate.get_value());
+                    objAmtPaid.set_value(objAmtFCY.get_value());
+                    return;
+                }
+            }
+            objAmtFCY.set_value();
             objAmtPaid.set_value();
-            return;
-        }
-        var CurDebitRate = Number(objCurDebit.get_value().split('#')[1]);
-        var DebitAmount = 0;
-        if (objCurDebit.get_text() != 'VND') {
-            DebitAmount = Number($find("<%= txtDebitAmtFCY.ClientID%>").get_value());
-            objAmtLCY.set_value(DebitAmount * CurDebitRate);
-        }
-        DebitAmount = objAmtLCY.get_value();
-        //
-        var objCurPaid = $find("<%= cboCurrencyPaid.ClientID%>");
-        if (objCurPaid.get_text() == '') {
-            objAmtPaid.set_value();
-            return;
-        }
-        //        
-        //var CurPaidRate = Number(objCurPaid.get_value().split('#')[1]);
-        var dealRate = $find("<%= txtDealRate.ClientID%>").get_value();
-        //alert(DebitAmount + '/' + dealRate);
-        if (dealRate != '') {
-            objAmtPaid.set_value(DebitAmount / dealRate);
         }
         else {
+            if (objAmtFCY.get_value() != '') {
+                if (objCreditRate.get_value() != '') {
+                    objAmtLCY.set_value(objAmtFCY.get_value() * objCreditRate.get_value());
+                    objAmtPaid.set_value(objAmtLCY.get_value());
+                    return;
+                }
+            }
+            objAmtLCY.set_value();
             objAmtPaid.set_value();
         }
     }
