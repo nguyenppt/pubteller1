@@ -130,7 +130,7 @@
                 <td class="MyLable">Credit Account</td>
                 <td class="MyContent">
                     <telerik:RadComboBox ID="rcbCreditAccount"
-                        MarkFirstMatch="True"
+                        MarkFirstMatch="True" appendDataBoundItems="true"
                         AllowCustomText="false"
                         Enabled = "false"
                         runat="server" Width="160" >                        
