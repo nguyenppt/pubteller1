@@ -69,10 +69,7 @@ namespace BankProject.FTTeller
                 rcbCurrency.SelectedValue = dr["Currency"].ToString(); 
                 rcbBenCom.SelectedValue = dr["BenComID"].ToString();
                 LoadCashAccount(rcbCurrency.SelectedValue);
-                if (rcbProductID.SelectedValue == "3000")
-                {
-                    loadcreditacc();
-                }
+                loadcreditacc();
                 if (rcbProductID.SelectedValue == "1000")
                 {
                     txtBenAccount.ReadOnly = true;
@@ -158,6 +155,7 @@ namespace BankProject.FTTeller
             string currency = rcbCurrency.SelectedValue;
             string bencom = rcbBenCom.SelectedValue;
             string product = rcbProductID.SelectedValue;
+            rcbCreditAccount.Items.Clear();
             if (currency != "" && bencom != "" && product != "")
             {
                 rcbCreditAccount.DataSource = BankProject.DataProvider.Database.BENCOM_SetCreditAccount_ByProduct(currency, bencom, product);
@@ -172,23 +170,11 @@ namespace BankProject.FTTeller
 
         protected void rcbCurrency_OnSelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            if (rcbProductID.SelectedValue == "3000")
-            {
-                loadcreditacc();
-            }
+            loadcreditacc();
             LoadCashAccount(rcbCurrency.SelectedValue);
         }
         protected void rcbProductID_OnSelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {
-            //rcbCashAccount.Items.Clear();
-
-            //rcbCashAccount.Items.Add(new RadComboBoxItem(""));
-            //rcbCashAccount.Items.Add(new RadComboBoxItem("USD-10001-2054-2861", "USD"));
-            //rcbCashAccount.Items.Add(new RadComboBoxItem("EUR-10001-2054-2861", "EUR"));
-            //rcbCashAccount.Items.Add(new RadComboBoxItem("GBP-10001-2054-2861", "GBP"));
-            //rcbCashAccount.Items.Add(new RadComboBoxItem("JPY-10001-2054-2861", "JPY"));
-            //rcbCashAccount.Items.Add(new RadComboBoxItem("VND-10001-2054-2861", "VND"));
-
             switch (rcbProductID.SelectedValue)
             {
                 case "3000":
