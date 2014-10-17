@@ -731,5 +731,36 @@ namespace BankProject.DataProvider
             sqldata.ndkExecuteNonQuery("BTRANSFER_4_CRE_CARD_PAYMENT_UpdateStatus", ID, Status,DebitAcountID, DebitAmt,Currency);
         }
         #endregion
+        #region OUT WARD TRANSFER BY CASH
+        public static void OUT_TRANS_BY_CASH_Insert_Update(string ID, string Status, string ProductID, string ProductName, string Currency, string BenComID, string BenComName
+            , string CreditAcctID, string CreditAcctName, string CashAccountID, double Amount, string SendingName, string SendingAddress1, string SendingAddress2
+            , string SendingPhone, string ReceivingName, string BenAccountID, string ProvinceID, string ProvinceName, string BankCodeID, string BankCodeName,
+            string IdentityCard, DateTime? Issuedate, string IssuePlace, string Teller, string Narrative1, string Narrative2, string Narrative3, string WaiveCharge
+            , string VATSerial, double ChargeAMount, double VATChargeAmount)
+        {
+             sqldata.ndkExecuteNonQuery("OUT_TRANS_BY_CASH_Insert_Update", ID, Status, ProductID, ProductName, Currency, BenComID, BenComName, CreditAcctID, CreditAcctName
+                , CashAccountID, Amount, SendingName, SendingAddress1, SendingAddress2, SendingPhone, ReceivingName, BenAccountID, ProvinceID, ProvinceName, BankCodeID
+                , BankCodeName, IdentityCard, Issuedate, IssuePlace, Teller, Narrative1, Narrative2, Narrative3, WaiveCharge, VATSerial, ChargeAMount, VATChargeAmount);
+        }
+        public static DataSet OUT_TRANS_BY_CASH_Preview_List()
+        {
+            return sqldata.ndkExecuteDataset("OUT_TRANS_BY_CASH_Preview_List");
+        }
+        public static DataSet OUT_TRANS_BY_CASH_Load_Preview(string ID)
+        {
+            return sqldata.ndkExecuteDataset("OUT_TRANS_BY_CASH_Load_Preview", ID);
+        }
+        public static void OUT_TRANS_BY_CASH_Update_Status(string Status, string ID)
+        {
+            sqldata.ndkExecuteNonQuery("OUT_TRANS_BY_CASH_Update_Status", Status, ID);
+        }
+        public static DataSet OUT_TRANS_BY_CASH_Enquiry(string ProductID, string SendingName, string LegalID, string ReceivingName, string BenAccount, string RefID
+            , string BenCom, string Currency, double FromAmt, double ToAmt)
+        {
+            return sqldata.ndkExecuteDataset("OUT_TRANS_BY_CASH_Enquiry", ProductID, SendingName, LegalID, ReceivingName, BenAccount, RefID, BenCom, Currency
+                , FromAmt, ToAmt);
+        }
+        #endregion
+
     }
 }
