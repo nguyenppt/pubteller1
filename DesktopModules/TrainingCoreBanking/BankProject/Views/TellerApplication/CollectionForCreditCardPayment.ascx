@@ -402,9 +402,9 @@
                         ErrorMessage="Credit Card Number is Required" ForeColor="Red">
                     </asp:RequiredFieldValidator></td>
                 <td class="MyContent">
-                    <telerik:RadNumericTextBox ID="txtCreditCardNumber" NumberFormat-DecimalDigits="0" NumberFormat-GroupSeparator=""
+                    <telerik:RadTextBox ID="txtCreditCardNumber" MaxLength="20"
                         runat="server" ValidationGroup="Group1">
-                    </telerik:RadNumericTextBox>
+                    </telerik:RadTextBox>
                 </td>
             </tr>
             <tr>
