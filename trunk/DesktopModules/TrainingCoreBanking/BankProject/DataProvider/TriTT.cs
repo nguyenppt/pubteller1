@@ -761,6 +761,16 @@ namespace BankProject.DataProvider
                 , FromAmt, ToAmt);
         }
         #endregion
+        #region INWARD CASH WITHDRAW
+        public static DataSet Load_ClearingID()
+        {
+            return sqldata.ndkExecuteDataset("Load_ClearingID");
+        }
+        public static DataSet B_BINWARD_CASH_WITHDRAW_Load_ID_Info(string ID)
+        {
+            return sqldata.ndkExecuteDataset("B_BINWARD_CASH_WITHDRAW_Load_ID_Info", ID);
+        }
+        #endregion
 
     }
 }
