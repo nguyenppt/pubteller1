@@ -457,9 +457,9 @@ namespace BankProject.DataProvider
         }
         #endregion
         #region CHEQUE _ WITHDRAWAL
-        public static DataSet CHEQUE_WITHDRAWAL_LoadCustomerAcct(string Currency)
+        public static DataSet CHEQUE_WITHDRAWAL_LoadCustomerAcct(string Currency, string AccountCustomer)
         {
-            return sqldata.ndkExecuteDataset("CHEQUE_WITHDRAWAL_LoadCustomerAcct", Currency);
+            return sqldata.ndkExecuteDataset("CHEQUE_WITHDRAWAL_LoadCustomerAcct", Currency,AccountCustomer);
         }
         public static DataSet CHEQUE_WITHDRAWAL_LoadChequeType()
         {
