@@ -46,8 +46,15 @@ div.Upload .ruFakeInput
 </telerik:RadToolBar>
 
 <div>
-    <table width="100%" cellpadding="0" cellspacing="0" style="padding-left:10px;padding-bottom:20px">
+    <table style="width: 100%; padding: 0px" >
+         <tr>
+             <td class="MyLable" style="padding:10px 0 5px 17px; ">Reference ID:</b></td>
+            <td style="padding-top:10px;padding-left:10px">
+                <asp:TextBox Width="150" ID="tbReferID" runat="server" ValidationGroup="Group1" AutoPostBack="true" Enabled="false"/>
+            </td>
+        </tr>
         <tr>
+            <td class="MyLable" style="padding:5px 0 5px 17px; ">Company:</b></td>
             <td style="padding-top:10px;padding-left:10px" >  <asp:RequiredFieldValidator
                     runat="server" Display="None"
                     ID="RequiredFieldValidator1"
@@ -65,6 +72,7 @@ div.Upload .ruFakeInput
                     </telerik:RadComboBox></td>
             
         </tr>
+       
     </table>
 </div>
 
