@@ -770,6 +770,34 @@ namespace BankProject.DataProvider
         {
             return sqldata.ndkExecuteDataset("B_BINWARD_CASH_WITHDRAW_Load_ID_Info", ID);
         }
+        public static void BINWARD_CASH_WITHDRAW_Insert(string ID, string status, string ClearingID, string DebitCurrency, string DebitAcct, double DebitLCY
+            , double DebitFCY, double DealRate, string CreditAcctID, string CreditAcctName, string CreditCurrency, double CreditLCY, double CreditFCY,
+            string BOName, string FOName, string IdentityCard, DateTime? IssueDate, string IssuePlace, string Tellephone, string Narrative1, string Narrative2, string CreatedUser)
+        {
+            sqldata.ndkExecuteNonQuery("BINWARD_CASH_WITHDRAW_Insert", ID, status, ClearingID, DebitCurrency, DebitAcct, DebitLCY, DebitFCY, DealRate, CreditAcctID, CreditAcctName, CreditCurrency
+                , CreditLCY, CreditFCY, BOName, FOName, IdentityCard, IssueDate, IssuePlace, Tellephone, Narrative1, Narrative2, CreatedUser);
+        }
+        public static DataSet BINWARD_CASH_WITHDRAW_PreviewList()
+        {
+            return sqldata.ndkExecuteDataset("BINWARD_CASH_WITHDRAW_PreviewList");
+        }
+        public static DataSet BINWARD_CASH_WITHDRAW_Load_Preview_Data(string RefID, string GetFor)
+        {
+            return sqldata.ndkExecuteDataset("BINWARD_CASH_WITHDRAW_Load_Preview_Data", RefID, GetFor);
+        }
+        public static void BINWARD_CASH_WITHDRAW_Update_Status(string RefID, string Status, string UpdateFor)
+        {
+            sqldata.ndkExecuteNonQuery("BINWARD_CASH_WITHDRAW_Update_Status",RefID, Status, UpdateFor);
+        }
+        public static DataSet BINWARD_CASH_WITHDRAW_Enquiry(string TransactionType, string BOName, string FOName, string FOLegalID, string RefID,string Currency
+            , double FromAmt, double toAmt)
+        {
+            return sqldata.ndkExecuteDataset("BINWARD_CASH_WITHDRAW_Enquiry", TransactionType, BOName, FOName, FOLegalID, RefID, Currency, FromAmt, toAmt);
+        }
+        public static string BINWARD_CASH_WITHDRAW_Load_Status(string ID, string GetFor)
+        {
+            return sqldata.ndkExecuteDataset("BINWARD_CASH_WITHDRAW_Load_Status", ID, GetFor).Tables[0].Rows[0]["Status"].ToString();
+        }
         #endregion
 
     }
