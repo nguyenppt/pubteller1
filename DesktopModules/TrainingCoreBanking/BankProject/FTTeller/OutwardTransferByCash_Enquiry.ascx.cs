@@ -26,7 +26,7 @@ namespace BankProject.FTTeller
                 {
                     RadGridView.DataSource = TriTT.OUT_TRANS_BY_CASH_Enquiry(rcbProductID.SelectedValue, tbSendingName.Text, tbLegalID.Text, tbReceivingName.Text
                         , tbBenAccount.Text, tbID.Text, rcbBenCom.SelectedValue, rcbCurrency.SelectedValue,tbFromAmt.Value.HasValue ? tbFromAmt.Value.Value : 0,
-                        tbToAmt.Value.HasValue ? tbToAmt.Value.Value : 0);
+                        tbToAmt.Value.HasValue ? tbToAmt.Value.Value : 0, rcbTransactionType.SelectedValue);
                     RadGridView.DataBind();
                 }
             }
@@ -37,12 +37,22 @@ namespace BankProject.FTTeller
             {
                 RadGridView.DataSource = TriTT.OUT_TRANS_BY_CASH_Enquiry(rcbProductID.SelectedValue, tbSendingName.Text, tbLegalID.Text, tbReceivingName.Text
                        , tbBenAccount.Text, tbID.Text, rcbBenCom.SelectedValue, rcbCurrency.SelectedValue, tbFromAmt.Value.HasValue ? tbFromAmt.Value.Value : 0,
-                       tbToAmt.Value.HasValue ? tbToAmt.Value.Value : 0);
+                       tbToAmt.Value.HasValue ? tbToAmt.Value.Value : 0, rcbTransactionType.SelectedValue);
             }
         }
-        protected string geturlReview(string ID)
+        protected string geturlReview(string ID, string TransactionType)
         {
-            return "Default.aspx?tabid=158&ID="+ID;
+            switch(TransactionType)
+            {
+                case "Cash":
+                return "Default.aspx?tabid=158&ID="+ID;
+                break;
+                case "Account":
+                return "Default.aspx?tabid=159&ID=" + ID;
+                break;
+                default:
+                return "";
+        }
         }
         protected void rcbPaymentType_onSelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
         {

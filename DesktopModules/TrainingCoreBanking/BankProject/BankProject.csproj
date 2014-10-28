@@ -110,6 +110,8 @@
     <Content Include="bin\Telerik.Web.UI.dll" />
     <Content Include="Controls\DynamicControls.ascx" />
     <Content Include="Controls\PaymentMethodControl.ascx" />
+    <Content Include="FTTeller\InwardEnquiry.ascx" />
+    <Content Include="FTTeller\OutwardTransferByCash_Enquiry.ascx" />
     <Content Include="InputCollateralInformation_Enquiry.ascx" />
     <Content Include="OpenCustomerAccountList.ascx" />
     <Content Include="TellerApplication\AccountManagement\CurrentNonTermSavingAC\SalaryPayment\PaymentFrequency.ascx" />
@@ -215,6 +217,7 @@
     <Content Include="Views\TellerApplication\CollectCharges.ascx" />
     <Content Include="Views\TellerApplication\CollectChargesByCashPreviewList.ascx" />
     <Content Include="Views\TellerApplication\CollectChargesPreviewList.ascx" />
+    <Content Include="Views\TellerApplication\CollectCharges_Enquiry.ascx" />
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment.ascx" />
     <Content Include="Views\TellerApplication\CollectChargesByCash.ascx" />
     <Content Include="Views\TellerApplication\CollectionForCreditCardPayment_PL.ascx" />
@@ -328,6 +331,9 @@
     <Compile Include="DataProvider\ThanhLP.cs" />
     <Compile Include="DataProvider\TransactionStatus.cs" />
     <Compile Include="DataProvider\TriTT.cs" />
+    <Compile Include="DBContext\AccountPeriods.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\BACCOUNTOFFICER.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
@@ -335,6 +341,12 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BADVISINGANDNEGOTIATION.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BAdvisingAndNegotiationLC.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BAdvisingAndNegotiationLCCharge.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BADVISINGANDNEGOTIATION_CHARGES.cs">
@@ -359,6 +371,9 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BCASHWITHRAWAL.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BCASH_REPAYMENT.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BCATEGORY.cs">
@@ -398,6 +413,9 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BCOLLECTCHARGESFROMACCOUNT.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BCOLLECTION_FOR_CRE_CARD_PAYM.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BCOMMITMENT_CONTRACT.cs">
@@ -461,6 +479,12 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BENQUIRYCHECK.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BEXPORT_DOCUMENTPROCESSING.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BEXPORT_DOCUMENTPROCESSINGCHARGE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BEXPORT_DOCUMETARYCOLLECTION.cs">
@@ -539,6 +563,9 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BLOANGROUP.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\BLOANINTEREST_KEY.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\BLOANPURPOSE.cs">
@@ -649,7 +676,13 @@
     <Compile Include="DBContext\BTRANSFERWITHDRAWAL.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBContext\BTRANSFER_4_CRE_CARD_PAYMENT.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBContext\B_AccountForBuyingTC.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_AddConfirmInfo.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_BuyTravellersCheque.cs">
@@ -662,6 +695,9 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_DEBUG.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_Denomination.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_ExchangeBanknotesManyDeno.cs">
@@ -677,6 +713,24 @@
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_ImportLCPaymentCharge.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_ImportLCPaymentMT202.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_ImportLCPaymentMT756.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_LOAN_CREDIT_SCORING.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_LOAN_DISBURSAL_SCHEDULE.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_LOAN_PROCESS_PAYMENT.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\B_NORMALLOAN_PAYMENT_SCHEDULE.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\B_SellTravellersCheque.cs">
@@ -701,6 +755,12 @@
       <DependentUpon>EntityDataModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DBContext\PROVISIONTRANSFER_DC.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\SessionHistories.cs">
+      <DependentUpon>EntityDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBContext\Shifts.cs">
       <DependentUpon>EntityDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBContext\Sochu.cs">
@@ -747,6 +807,13 @@
     <Compile Include="Entity\TriTT_Saving\SavingAccount.cs" />
     <Compile Include="Entity\TriTT_Saving\SavingAccount_SQL.cs" />
     <Compile Include="Entity\WorkingBankAccount.cs" />
+    <Compile Include="FTTeller\InwardEnquiry.ascx.cs">
+      <DependentUpon>InwardEnquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FTTeller\InwardEnquiry.ascx.designer.cs">
+      <DependentUpon>InwardEnquiry.ascx</DependentUpon>
+    </Compile>
     <Compile Include="FTTeller\InwardProcessCreditAcc_PL.ascx.cs">
       <DependentUpon>InwardProcessCreditAcc_PL.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -774,6 +841,13 @@
     </Compile>
     <Compile Include="FTTeller\InwardCashWithdraw.ascx.designer.cs">
       <DependentUpon>InwardCashWithdraw.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="FTTeller\OutwardTransferByCash_Enquiry.ascx.cs">
+      <DependentUpon>OutwardTransferByCash_Enquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FTTeller\OutwardTransferByCash_Enquiry.ascx.designer.cs">
+      <DependentUpon>OutwardTransferByCash_Enquiry.ascx</DependentUpon>
     </Compile>
     <Compile Include="FTTeller\OutwardTransferByCash_PL.ascx.cs">
       <DependentUpon>OutwardTransferByCash_PL.ascx</DependentUpon>
@@ -1470,6 +1544,13 @@
     </Compile>
     <Compile Include="Views\TellerApplication\CollectChargesPreviewList.ascx.designer.cs">
       <DependentUpon>CollectChargesPreviewList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TellerApplication\CollectCharges_Enquiry.ascx.cs">
+      <DependentUpon>CollectCharges_Enquiry.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TellerApplication\CollectCharges_Enquiry.ascx.designer.cs">
+      <DependentUpon>CollectCharges_Enquiry.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\TellerApplication\CollectionForCreditCardPayment.ascx.cs">
       <DependentUpon>CollectionForCreditCardPayment.ascx</DependentUpon>

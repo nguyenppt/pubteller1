@@ -37,5 +37,7 @@ namespace BankProject.DBContext
         public Nullable<long> AuthorizedBy { get; set; }
         public Nullable<System.DateTime> AuthorizedDate { get; set; }
         public string Status { get; set; }
+        public string CustomerID { get; set; }
+        public string CustomerAcct { get; set; }
     }
 }

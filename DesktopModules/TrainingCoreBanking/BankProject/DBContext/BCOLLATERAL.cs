@@ -18,5 +18,6 @@ namespace BankProject.DBContext
         public string CollateralTypeName { get; set; }
         public string CollateralCode { get; set; }
         public string CollateralName { get; set; }
+        public Nullable<decimal> Rate { get; set; }
     }
 }

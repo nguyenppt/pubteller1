@@ -12,11 +12,18 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCURRENCY
+    public partial class Shifts
     {
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public string Vietnamese { get; set; }
-        public string Pence { get; set; }
+        public Shifts()
+        {
+            this.AccountPeriods = new HashSet<AccountPeriods>();
+        }
+    
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public System.DateTime BeginShift { get; set; }
+        public System.DateTime EndShift { get; set; }
+    
+        public virtual ICollection<AccountPeriods> AccountPeriods { get; set; }
     }
 }
