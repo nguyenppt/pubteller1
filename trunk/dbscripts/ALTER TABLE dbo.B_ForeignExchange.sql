@@ -1,0 +1,2 @@
+ALTER TABLE dbo.B_ForeignExchange
+ALTER COLUMN CrTellerID VARCHAR(50)
