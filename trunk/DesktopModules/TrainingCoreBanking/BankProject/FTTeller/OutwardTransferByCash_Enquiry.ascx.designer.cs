@@ -49,6 +49,15 @@ namespace BankProject.FTTeller {
         protected global::Telerik.Web.UI.RadComboBox rcbProductID;
         
         /// <summary>
+        /// rcbTransactionType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadComboBox rcbTransactionType;
+        
+        /// <summary>
         /// tbSendingName control.
         /// </summary>
         /// <remarks>

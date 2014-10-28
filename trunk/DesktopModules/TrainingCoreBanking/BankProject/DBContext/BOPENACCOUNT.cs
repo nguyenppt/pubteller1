@@ -76,5 +76,7 @@ namespace BankProject.DBContext
         public Nullable<System.DateTime> AuthorizedDate { get; set; }
         public string Status { get; set; }
         public string AccountStatus { get; set; }
+        public Nullable<bool> BlockAccount { get; set; }
+        public Nullable<bool> UnBlockAccount_temp { get; set; }
     }
 }

@@ -147,5 +147,24 @@ namespace BankProject.DBContext
         public DbSet<PROVISIONTRANSFER_DC> PROVISIONTRANSFER_DC { get; set; }
         public DbSet<Sochu> Sochu { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<AccountPeriods> AccountPeriods { get; set; }
+        public DbSet<B_AddConfirmInfo> B_AddConfirmInfo { get; set; }
+        public DbSet<B_Denomination> B_Denomination { get; set; }
+        public DbSet<B_ImportLCPaymentMT202> B_ImportLCPaymentMT202 { get; set; }
+        public DbSet<B_ImportLCPaymentMT756> B_ImportLCPaymentMT756 { get; set; }
+        public DbSet<B_LOAN_CREDIT_SCORING> B_LOAN_CREDIT_SCORING { get; set; }
+        public DbSet<B_LOAN_DISBURSAL_SCHEDULE> B_LOAN_DISBURSAL_SCHEDULE { get; set; }
+        public DbSet<B_LOAN_PROCESS_PAYMENT> B_LOAN_PROCESS_PAYMENT { get; set; }
+        public DbSet<B_NORMALLOAN_PAYMENT_SCHEDULE> B_NORMALLOAN_PAYMENT_SCHEDULE { get; set; }
+        public DbSet<BAdvisingAndNegotiationLC> BAdvisingAndNegotiationLC { get; set; }
+        public DbSet<BAdvisingAndNegotiationLCCharge> BAdvisingAndNegotiationLCCharge { get; set; }
+        public DbSet<BCASH_REPAYMENT> BCASH_REPAYMENT { get; set; }
+        public DbSet<BCOLLECTION_FOR_CRE_CARD_PAYM> BCOLLECTION_FOR_CRE_CARD_PAYM { get; set; }
+        public DbSet<BEXPORT_DOCUMENTPROCESSING> BEXPORT_DOCUMENTPROCESSING { get; set; }
+        public DbSet<BEXPORT_DOCUMENTPROCESSINGCHARGE> BEXPORT_DOCUMENTPROCESSINGCHARGE { get; set; }
+        public DbSet<BLOANINTEREST_KEY> BLOANINTEREST_KEY { get; set; }
+        public DbSet<BTRANSFER_4_CRE_CARD_PAYMENT> BTRANSFER_4_CRE_CARD_PAYMENT { get; set; }
+        public DbSet<SessionHistories> SessionHistories { get; set; }
+        public DbSet<Shifts> Shifts { get; set; }
     }
 }

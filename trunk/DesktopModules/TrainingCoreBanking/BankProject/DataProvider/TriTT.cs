@@ -755,10 +755,10 @@ namespace BankProject.DataProvider
             sqldata.ndkExecuteNonQuery("OUT_TRANS_BY_CASH_Update_Status", Status, ID);
         }
         public static DataSet OUT_TRANS_BY_CASH_Enquiry(string ProductID, string SendingName, string LegalID, string ReceivingName, string BenAccount, string RefID
-            , string BenCom, string Currency, double FromAmt, double ToAmt)
+            , string BenCom, string Currency, double FromAmt, double ToAmt, string transactionType)
         {
             return sqldata.ndkExecuteDataset("OUT_TRANS_BY_CASH_Enquiry", ProductID, SendingName, LegalID, ReceivingName, BenAccount, RefID, BenCom, Currency
-                , FromAmt, ToAmt);
+                , FromAmt, ToAmt,transactionType);
         }
         #endregion
         #region INWARD CASH WITHDRAW
@@ -848,6 +848,14 @@ namespace BankProject.DataProvider
         public static DataSet BOUTWARD_TRANS_BY_ACCT_Load_Detail_Data(string ID)
         {
             return sqldata.ndkExecuteDataset("BOUTWARD_TRANS_BY_ACCT_Load_Detail_Data", ID);
+        }
+        public static DataSet BOUTWARD_TRANS_BY_ACCT_Update_Status(string ID, string Status, string DebitAcctID, double Amount, double ChargeAmt, double ChargeVATAmt)
+        {
+            return sqldata.ndkExecuteDataset("BOUTWARD_TRANS_BY_ACCT_Update_Status", ID, Status, DebitAcctID, Amount, ChargeAmt, ChargeVATAmt);
+        }
+        public static string BOUTWARD_TRANS_BY_ACCT_Load_Status(string ID)
+        {
+            return sqldata.ndkExecuteDataset("BOUTWARD_TRANS_BY_ACCT_Load_Status", ID).Tables[0].Rows[0]["Status"].ToString();
         }
         #endregion
 

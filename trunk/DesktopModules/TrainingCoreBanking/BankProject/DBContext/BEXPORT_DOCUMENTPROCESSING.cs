@@ -12,7 +12,7 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BIMPORT_DOCUMENTPROCESSING
+    public partial class BEXPORT_DOCUMENTPROCESSING
     {
         public long Id { get; set; }
         public string DocumentType { get; set; }

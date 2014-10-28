@@ -12,10 +12,10 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BINCOMINGCOLLECTIONPAYMENTMT202
+    public partial class B_ImportLCPaymentMT202
     {
-        public long Id { get; set; }
-        public string CollectionPaymentCode { get; set; }
+        public long PaymentId { get; set; }
+        public string PaymentCode { get; set; }
         public string TransactionReferenceNumber { get; set; }
         public string RelatedReference { get; set; }
         public Nullable<System.DateTime> ValueDate { get; set; }

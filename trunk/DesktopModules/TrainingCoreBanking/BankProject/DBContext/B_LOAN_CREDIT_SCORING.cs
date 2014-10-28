@@ -12,11 +12,14 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCURRENCY
+    public partial class B_LOAN_CREDIT_SCORING
     {
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public string Vietnamese { get; set; }
-        public string Pence { get; set; }
+        public long ScoreId { get; set; }
+        public long ScoreFrom { get; set; }
+        public long ScoreTo { get; set; }
+        public string Rating { get; set; }
+        public string ClassificationOfDebt { get; set; }
+        public Nullable<long> CreateBy { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
     }
 }

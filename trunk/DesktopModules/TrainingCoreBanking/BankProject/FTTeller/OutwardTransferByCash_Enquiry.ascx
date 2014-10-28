@@ -28,7 +28,7 @@
     <table cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <td class="MyLable">Product ID:</td>
-            <td class="MyContent">
+            <td class="MyContent" width="320">
                 <telerik:RadComboBox ID="rcbProductID" runat="server" AllowCustomText="false" 
                              MarkFirstMatch="true" ValidationGroup="Group1"
                     onSelectedIndexChanged="rcbPaymentType_onSelectedIndexChanged" AutoPostBack="True"
@@ -39,6 +39,20 @@
                        <telerik:RadComboBoxItem Value="3000" Text="3000 - Chuyển đi thanh toán CI-TAD" />
                     </Items>
                         </telerik:RadComboBox>
+            </td>
+            <td class="MyLable">Transaction Type</td>
+            <td class="MyContent">
+                <telerik:RadComboBox AppendDataBoundItems="True"                                     
+                                    ID="rcbTransactionType" runat="server"
+                                    MarkFirstMatch="True" 
+                                    AllowCustomText="false">
+                                    <ExpandAnimation Type="None" />
+                                    <CollapseAnimation Type="None" /> 
+                                    <Items>
+                                        <telerik:RadComboBoxItem Value="Cash" Text="Transfer by Cash" />
+                                        <telerik:RadComboBoxItem Value="Account" Text="Transfer by Account" />
+                                    </Items>
+                                </telerik:RadComboBox>
             </td>
         </tr>
         </table>
@@ -116,12 +130,12 @@
 
             <telerik:GridBoundColumn HeaderText="Amount" DataField="Amount" ItemStyle-HorizontalAlign="Right"  HeaderStyle-HorizontalAlign="right"   HeaderStyle-Width="100" DataType="System.Decimal"  DataFormatString="{0:N}" />
             <telerik:GridBoundColumn HeaderText="Charge Amt" DataField="ChargeAmount" ItemStyle-HorizontalAlign="Right"  HeaderStyle-HorizontalAlign="right"  HeaderStyle-Width="100"  DataType="System.Decimal"  DataFormatString="{0:N}" />
-            <telerik:GridBoundColumn HeaderText="Charge Vat Amt" DataField="VATChargeAmount" ItemStyle-HorizontalAlign="Right"  HeaderStyle-Width="100" DataType="System.Decimal"  DataFormatString="{0:N}" />
+            <telerik:GridBoundColumn HeaderText="Charge Vat Amt" DataField="VATChargeAmount" ItemStyle-HorizontalAlign="Right" HeaderStyle-HorizontalAlign="right" HeaderStyle-Width="100" DataType="System.Decimal"  DataFormatString="{0:N}" />
             <telerik:GridBoundColumn HeaderText="Status" DataField="Status" HeaderStyle-Width="10%"  ItemStyle-HorizontalAlign="center"  HeaderStyle-HorizontalAlign="center"/>
             <telerik:GridTemplateColumn>
                 <ItemStyle Width="25" />
                 <ItemTemplate>
-                    <a href='<%# geturlReview(Eval("ID").ToString()) %>'><img src="Icons/bank/text_preview.png" alt="" title="" style="" width="20" /> </a> 
+                    <a href='<%# geturlReview(Eval("ID").ToString(),Eval("TransactionType").ToString()) %>'><img src="Icons/bank/text_preview.png" alt="" title="" style="" width="20" /> </a> 
                 </itemtemplate>
             </telerik:GridTemplateColumn>
         </Columns>

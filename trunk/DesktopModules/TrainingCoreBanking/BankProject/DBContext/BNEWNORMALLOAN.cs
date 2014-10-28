@@ -78,5 +78,9 @@ namespace BankProject.DBContext
         public string CollateralID_1 { get; set; }
         public string CollateralID_2 { get; set; }
         public string CollateralID_3 { get; set; }
+        public Nullable<decimal> Tot_P_Pay_Amt { get; set; }
+        public Nullable<decimal> Tot_I_Pay_Amt { get; set; }
+        public Nullable<decimal> Tot_P_Pastdue_Amt { get; set; }
+        public Nullable<decimal> Tot_I_Pastdue_Amt { get; set; }
     }
 }

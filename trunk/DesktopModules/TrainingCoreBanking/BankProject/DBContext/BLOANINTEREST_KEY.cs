@@ -12,11 +12,12 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCURRENCY
+    public partial class BLOANINTEREST_KEY
     {
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public string Vietnamese { get; set; }
-        public string Pence { get; set; }
+        public int Id { get; set; }
+        public string LoanInterest_Key { get; set; }
+        public Nullable<decimal> VND_InterestRate { get; set; }
+        public Nullable<decimal> USD_InterestRate { get; set; }
+        public long MonthLoanRateNo { get; set; }
     }
 }

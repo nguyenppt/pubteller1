@@ -46,5 +46,7 @@ namespace BankProject.DBContext
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string ActiveFlag { get; set; }
         public string ProductLimitID { get; set; }
+        public Nullable<decimal> Rate { get; set; }
+        public string GlobalLimitID2 { get; set; }
     }
 }

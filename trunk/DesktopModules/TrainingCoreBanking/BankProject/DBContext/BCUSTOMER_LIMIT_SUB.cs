@@ -42,5 +42,9 @@ namespace BankProject.DBContext
         public string ApprovedUser { get; set; }
         public string ActiveFlag { get; set; }
         public string MainComtType { get; set; }
+        public Nullable<decimal> InternalLimitAmt { get; set; }
+        public Nullable<decimal> AdvisedAmt { get; set; }
+        public string ProductID { get; set; }
+        public string ProductName { get; set; }
     }
 }

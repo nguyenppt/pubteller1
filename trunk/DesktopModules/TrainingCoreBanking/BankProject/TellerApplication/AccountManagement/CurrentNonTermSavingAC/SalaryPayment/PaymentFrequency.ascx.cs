@@ -565,8 +565,8 @@ namespace BankProject.TellerApplication.AccountManagement.CurrentNonTermSavingAC
 
         private string generateCode()
         {
-            StoreProRepository storePro = new StoreProRepository();
-            return storePro.StoreProcessor().B_BMACODE_GetNewID("SALARY_PAYMENT", "TT", ".").First<string>();
+            StoreProRepository storePro = new StoreProRepository(); return "";
+            //return storePro.StoreProcessor().B_BMACODE_GetNewID("SALARY_PAYMENT", "TT", ".").First<string>();
         }
        
 

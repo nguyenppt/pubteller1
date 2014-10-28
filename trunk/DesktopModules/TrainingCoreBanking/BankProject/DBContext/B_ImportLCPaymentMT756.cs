@@ -12,11 +12,11 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BINCOMINGCOLLECTIONPAYMENTMT400
+    public partial class B_ImportLCPaymentMT756
     {
-        public long Id { get; set; }
-        public string CollectionPaymentCode { get; set; }
-        public string GeneralMT400 { get; set; }
+        public long PaymentId { get; set; }
+        public string PaymentCode { get; set; }
+        public string General { get; set; }
         public string SendingBankTRN { get; set; }
         public string RelatedReference { get; set; }
         public Nullable<double> AmountCollected { get; set; }

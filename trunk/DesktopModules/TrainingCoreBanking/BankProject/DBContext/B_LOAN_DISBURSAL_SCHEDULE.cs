@@ -12,11 +12,12 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCURRENCY
+    public partial class B_LOAN_DISBURSAL_SCHEDULE
     {
+        public int ID { get; set; }
         public string Code { get; set; }
-        public string Description { get; set; }
-        public string Vietnamese { get; set; }
-        public string Pence { get; set; }
+        public Nullable<System.DateTime> DisbursalDate { get; set; }
+        public Nullable<double> DisbursalAmount { get; set; }
+        public Nullable<System.DateTime> DrawdownDate { get; set; }
     }
 }

@@ -22,5 +22,8 @@ namespace BankProject.DBContext
         public string RelatedReference { get; set; }
         public string Currency { get; set; }
         public Nullable<double> Amount { get; set; }
+        public string SenderToReceiverInfo1 { get; set; }
+        public string SenderToReceiverInfo2 { get; set; }
+        public string SenderToReceiverInfo3 { get; set; }
     }
 }

@@ -12,11 +12,10 @@ namespace BankProject.DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class BCURRENCY
+    public partial class B_Denomination
     {
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public string Vietnamese { get; set; }
-        public string Pence { get; set; }
+        public string Currency { get; set; }
+        public int Denomination { get; set; }
+        public double Rate { get; set; }
     }
 }

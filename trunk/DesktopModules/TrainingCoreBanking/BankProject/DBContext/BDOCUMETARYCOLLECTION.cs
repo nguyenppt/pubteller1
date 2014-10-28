@@ -82,5 +82,6 @@ namespace BankProject.DBContext
         public Nullable<double> B4_AUT_Amount { get; set; }
         public Nullable<long> PaymentNo { get; set; }
         public string PaymentId { get; set; }
+        public string DraftNo { get; set; }
     }
 }
