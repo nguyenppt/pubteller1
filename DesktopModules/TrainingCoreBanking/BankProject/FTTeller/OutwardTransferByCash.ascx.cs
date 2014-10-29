@@ -46,12 +46,23 @@ namespace BankProject.FTTeller
             }
             if (commandName == "authorize") 
             {
-                TriTT.OUT_TRANS_BY_CASH_Update_Status("AUT", txtId.Text);
+                if (TriTT.BINWARD_CASH_WITHDRAW_Load_Status(txtId.Text, "trans_by_cash") == "AUT")
+                {
+                    ShowMsgBox("this transaction is authorized, you can not authorize it again !"); return;
+                }
+                DataSet ds = TriTT.OUT_TRANS_BY_CASH_Update_Status("AUT", txtId.Text, txtBenAccount.Text,txtAmountLCY.Value.HasValue? txtAmountLCY.Value.Value:0, rcbCurrency.SelectedValue);
+                string BenAccount_Currency = "";
+                if(ds.Tables != null && ds.Tables.Count >0 && ds.Tables[0].Rows.Count>0) BenAccount_Currency = ds.Tables[0].Rows[0]["Currency"].ToString();
+                if (BenAccount_Currency != "")
+                {
+                    ShowMsgBox("Selected Ben Account is not "+ rcbCurrency.SelectedValue+" account. Please select the right account! The current Ben Account is "+
+                        BenAccount_Currency +" account"); return;
+                }
                 Response.Redirect("Default.aspx?tabid=158");
             }
             if (commandName == "reverse")
             {
-                TriTT.OUT_TRANS_BY_CASH_Update_Status("REV", txtId.Text);
+                TriTT.OUT_TRANS_BY_CASH_Update_Status("REV", txtId.Text,"",0,"");
                 LoadToolBar(true);
             }
         }
@@ -111,6 +122,27 @@ namespace BankProject.FTTeller
                 {
                     LoadToolBar_AllFalse();
                     BankProject.Controls.Commont.SetTatusFormControls(this.Controls, false);
+                }
+            }
+        }
+        protected void txtBenAccount_TextChanged(object sender, EventArgs e)
+        {
+            Load_BenAccount_Info(txtBenAccount.Text);
+        }
+        protected void Load_BenAccount_Info(string BenAcctID)
+        { 
+            if (rcbProductID.SelectedValue == "3000")
+            {
+                DataSet ds = TriTT.OUTWARD_TRANFER_BY_ACCT_LoadBenAcct(BenAcctID);
+                if (ds.Tables != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow dr = ds.Tables[0].Rows[0];
+                    tbReceivingName.Text = dr["GBFullName"].ToString();
+                    txtIdentityCard.Text = dr["DocID"].ToString();
+                    txtIsssuePlace.Text = dr["DocIssuePlace"].ToString();
+                    if (dr["DocIssueDate"].ToString() != "")
+                        txtIsssueDate.SelectedDate = Convert.ToDateTime(dr["DocIssueDate"].ToString());
+                    //tbPhone.Text = dr["MobilePhone"].ToString();
                 }
             }
         }
@@ -257,6 +289,13 @@ namespace BankProject.FTTeller
             rcbCurrency.DataTextField = "Code";
             rcbCurrency.DataSource = Currency;
             rcbCurrency.DataBind();
+        }
+        protected void ShowMsgBox(string contents, int width = 420, int hiegth = 150)
+        {
+            string radalertscript =
+                "<script language='javascript'>function f(){radalert('" + contents + "', " + width + ", '" + hiegth +
+                "', 'Warning'); Sys.Application.remove_load(f);}; Sys.Application.add_load(f);</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "radalert", radalertscript);
         }
         #endregion
 
