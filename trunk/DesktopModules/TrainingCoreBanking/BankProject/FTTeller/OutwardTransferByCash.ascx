@@ -226,7 +226,7 @@
             <tr>
                 <td class="MyLable">Ben Account</td>
                 <td class="MyContent">
-                    <telerik:RadTextBox ID="txtBenAccount" runat="server" ></telerik:RadTextBox>
+                    <telerik:RadTextBox ID="txtBenAccount" runat="server" onTextChanged="txtBenAccount_TextChanged"  autoPostBack="true"></telerik:RadTextBox>
                 </td>
             </tr>
         </table>
@@ -379,6 +379,7 @@
 <div style="visibility:hidden;">
     <asp:Button ID="btSearch" runat="server" OnClick="btSearch_Click" />
 </div>
+<telerik:RadCodeBlock id="codeBlock" runat="server">
 <script type="text/javascript">
     $('#<%=txtId.ClientID%>').keyup(function (event) {
         if (event.keyCode == 13) $("#<%=btSearch.ClientID%>").click();
@@ -418,3 +419,18 @@
     
     }
   </script>
+    </telerik:RadCodeBlock>
+<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" 
+    DefaultLoadingPanelID="AjaxLoadingPanel1" >
+    <AjaxSettings>
+
+        <telerik:AjaxSetting AjaxControlID="txtBenAccount">
+            <UpdatedControls>
+                 <telerik:AjaxUpdatedControl ControlID="tbReceivingName" />
+                <telerik:AjaxUpdatedControl ControlID="txtIdentityCard" />
+                <telerik:AjaxUpdatedControl ControlID="txtIsssuePlace" /> 
+                <telerik:AjaxUpdatedControl ControlID="txtIsssueDate" />
+            </UpdatedControls>
+        </telerik:AjaxSetting> 
+</AjaxSettings>
+</telerik:RadAjaxManager>
