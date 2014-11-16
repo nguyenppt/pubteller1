@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using BankProject.DataProvider;
 using Telerik.Web.UI;
 using System.Data;
+using System.Configuration;
 
 namespace BankProject.Views.TellerApplication
 {
@@ -61,7 +62,7 @@ namespace BankProject.Views.TellerApplication
                         tbBenAccount.Text, tbIDCard.Text, rdpIssueDate.SelectedDate.HasValue? rdpIssueDate.SelectedDate: null, tbIssuePlace.Text, rcbProvince.SelectedValue,rcbProvince.Text !=""? rcbProvince.Text.Replace(rcbProvince.SelectedValue + " - ", ""):"",
                         tbPhone.Text, rcbBankCode.SelectedValue,rcbBankCode.Text !=""? rcbBankCode.Text.Replace(rcbBankCode.SelectedValue + " - ", ""):"", tbBankName.Text, tbPayNumber.Text,
                         UserInfo.Username.ToString(), tbNarrative.Text, tbNarrative2.Text, rcbWaiveCharge.SelectedValue, rcbSaveTemplate.SelectedValue, txtVatSerial.Text, txtChargeAmtLCY.Value.HasValue ? txtChargeAmtLCY.Value.Value : 0,
-                        txtChargeVatAmt.Value.HasValue ? txtChargeVatAmt.Value.Value : 0);
+                        txtChargeVatAmt.Value.HasValue ? txtChargeVatAmt.Value.Value : 0, rcbCreditAccount.SelectedValue);
                     Response.Redirect("Default.aspx?tabid=" + this.TabId);
                     break;
                 case "Preview":
@@ -94,6 +95,9 @@ namespace BankProject.Views.TellerApplication
                     }
                     Response.Redirect("Default.aspx?tabid=" + this.TabId);
                     break;
+                case "print":
+                    Print_Deal_Slip();
+                    break;
             }
         }
         #endregion
@@ -109,7 +113,7 @@ namespace BankProject.Views.TellerApplication
                 rcbProductID.SelectedValue = dr["ProductID"].ToString();
                 rcbBenCom.SelectedValue = dr["BenComID"].ToString();
                 rcbCurrency.SelectedValue = dr["Currency"].ToString();
-                //LoadDebitAcct();
+                loadcreditacc();
                 tbDebitAccount.Text = dr["DebitAcctID"].ToString();
                 tbAmount.Text = dr["DebitAmount"].ToString();
                 tbSendingName.Text = dr["SendingName"].ToString();
@@ -149,10 +153,7 @@ namespace BankProject.Views.TellerApplication
         {
             LoadDebitAcct();
         }
-        protected void rcbCurrency_ONSelectedINdexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
-        {
-            LoadDebitAcct();
-        }
+        
         protected void LoadDebitAcct()
         {
             string currency = rcbCurrency.SelectedValue;
@@ -197,6 +198,72 @@ namespace BankProject.Views.TellerApplication
                 }
             }
         }
+        protected void Print_Deal_Slip()
+        {
+            Aspose.Words.License license = new Aspose.Words.License();
+            license.SetLicense("Aspose.Words.lic");
+            
+            DataSet ds;
+            if (rcbProductID.SelectedValue == "1000")
+            {
+                //Open template
+                string docPath = Context.Server.MapPath("~/DesktopModules/TrainingCoreBanking/BankProject/Report/Template/OutWardTransactions/transfer_by_account_dien_CMND.doc");
+                //Open the template document
+                Aspose.Words.Document document = new Aspose.Words.Document(docPath);
+                //Execute the mail merge.
+                ds = BankProject.DataProvider.TriTT.Print_Deal_slip("Trans_By_Acct", "CMND", tbID.Text.Trim());
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    ds.Tables[0].TableName = "Info";
+                    document.MailMerge.ExecuteWithRegions(ds.Tables["Info"]);
+                    document.Save("TransferByAccount_CMND_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".doc", Aspose.Words.SaveFormat.Doc, Aspose.Words.SaveType.OpenInBrowser, Response);
+                }
+            }
+            else 
+            {
+                //Open template
+                string docPath = Context.Server.MapPath("~/DesktopModules/TrainingCoreBanking/BankProject/Report/Template/OutWardTransactions/transfer_by_account_dien_CITAD.doc");
+                //Open the template document
+                Aspose.Words.Document document = new Aspose.Words.Document(docPath);
+                //Execute the mail merge.
+                ds = BankProject.DataProvider.TriTT.Print_Deal_slip("Trans_By_Acct", "CITAD", tbID.Text.Trim());
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    //ds.Tables[0].Rows[0]["ChiNhanh"] = ConfigurationManager.AppSettings["ChiNhanh"];
+                    //ds.Tables[0].Rows[0]["BranchAddress"] = ConfigurationManager.AppSettings["BranchAddress"];
+                    //ds.Tables[0].Rows[0]["BranchTel"] = ConfigurationManager.AppSettings["BranchTel"];
+                    ds.Tables[0].TableName = "Info";
+                    //ds.Tables[1].TableName = "Detail";
+                    //document.MailMerge.ExecuteWithRegions(ds.Tables["Info"]);
+                    document.MailMerge.ExecuteWithRegions(ds.Tables["Info"]);
+                    // Send the document in Word format to the client browser with an option to save to disk or open inside the current browser.
+                    document.Save("TransferByAccount_CITAD_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".doc", Aspose.Words.SaveFormat.Doc, Aspose.Words.SaveType.OpenInBrowser, Response);
+                }
+            }
+        }
+        void loadcreditacc()
+        {
+            string currency = rcbCurrency.SelectedValue;
+            string bencom = rcbBenCom.SelectedValue;
+            string product = rcbProductID.SelectedValue;
+            rcbCreditAccount.Items.Clear();
+            if (currency != "" && bencom != "" && product != "")
+            {
+                rcbCreditAccount.DataSource = BankProject.DataProvider.Database.BENCOM_SetCreditAccount_ByProduct(currency, bencom, product);
+                rcbCreditAccount.DataTextField = "CREDITACCOUNT";
+                rcbCreditAccount.DataValueField = "CREDITACCOUNT";
+                rcbCreditAccount.DataBind();
+
+                rcbCreditAccount.SelectedIndex = 0;
+                rcbCreditAccount.Enabled = false;
+            }
+        }
+
+        protected void rcbCurrency_OnSelectedIndexChanged(object sender, RadComboBoxSelectedIndexChangedEventArgs e)
+        {
+            loadcreditacc();
+            LoadDebitAcct();
+        }
         protected void Load_BankCode(string Province)
         {
             DataSet ds = BankProject.DataProvider.Database.BBANKCODE_GetByProvince(Province);
@@ -221,7 +288,7 @@ namespace BankProject.Views.TellerApplication
             RadToolBar1.FindItemByValue("btAuthorize").Enabled = !flag;
             RadToolBar1.FindItemByValue("btReverse").Enabled = !flag;
             RadToolBar1.FindItemByValue("btSearch").Enabled = false;
-            RadToolBar1.FindItemByValue("btPrint").Enabled = false;
+            RadToolBar1.FindItemByValue("btPrint").Enabled = true;
         }
         protected void LoadToolBar_AllFalse()
         {
@@ -230,7 +297,7 @@ namespace BankProject.Views.TellerApplication
             RadToolBar1.FindItemByValue("btAuthorize").Enabled = false;
             RadToolBar1.FindItemByValue("btReverse").Enabled = false;
             RadToolBar1.FindItemByValue("btSearch").Enabled = false;
-            RadToolBar1.FindItemByValue("btPrint").Enabled = false;
+            RadToolBar1.FindItemByValue("btPrint").Enabled = true;
         }
 
         protected void LoadCurrency()
