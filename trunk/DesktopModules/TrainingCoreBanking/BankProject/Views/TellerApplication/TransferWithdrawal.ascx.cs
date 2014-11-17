@@ -49,7 +49,7 @@ namespace BankProject.Views.TellerApplication
                         lblCustBal.Value.HasValue ? lblCustBal.Value.Value : 0, lblNewCustBal.Value.HasValue ? lblNewCustBal.Value.Value : 0,
                         rdpValueDate.SelectedDate, lbCreditAccountId.Text, lblAmtCreditForCust.Value.HasValue ? lblAmtCreditForCust.Value.Value : 0, txtDealRate.Value.HasValue ? txtDealRate.Value.Value : 0,
                         rdpCreditValueDate.SelectedDate, cmbWaiveCharges.SelectedValue, txtNarrative.Text, this.UserId, lblCustomerId.Text, lblCustomerName.Text
-                        , lbCustomerID_CR.Text, lbCustomerName_CR.Text, cmbDebitCurrency.Text, cmbCreditCurrency.Text);
+                        , lbCustomerID_CR.Text, lbCustomerName_CR.Text, cmbDebitCurrency.Text, cmbCreditCurrency.Text, UserInfo.Username.ToString());
 
                     if (cmbWaiveCharges.SelectedValue == "NO") Response.Redirect(EditUrl("waivecharges"));
 

@@ -38,7 +38,15 @@ namespace BankProject.FTTeller
                     , rcbBankCode.SelectedValue,rcbBankCode.Text !=""? rcbBankCode.Text.Replace(rcbBankCode.SelectedValue + " - ", "") : "", txtIdentityCard.Text, txtIsssueDate.SelectedDate,
                     txtIsssuePlace.Text, txtTeller.Text, txtNarrative.Text, txtNarrative2.Text, txtNarrative3.Text, cmbWaiveCharges.SelectedValue, txtVatSerial.Text,
                     txtChargeAmtLCY.Value.HasValue? txtChargeAmtLCY.Value.Value : 0,txtChargeVatAmt.Value.HasValue? txtChargeVatAmt.Value.Value : 0);
-                Response.Redirect("Default.aspx?tabid=158");
+                switch(cmbWaiveCharges.SelectedValue)
+                {
+                    case "NO":
+                        Response.Redirect("Default.aspx?tabid=141");
+                    break;
+                    default:
+                        Response.Redirect("Default.aspx?tabid=158");
+                        break;
+                }
             }
             if (commandName == "Preview")
             {

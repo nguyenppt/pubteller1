@@ -371,19 +371,19 @@
                                 </telerik:RadComboBox>
                 </td>
             </tr>
-           <tr>
+           <tr style="visibility:hidden;">
                 <td class="MyLable">Vat Serial</td>
                 <td class="MyContent">
                     <telerik:RadTextBox ID="txtVatSerial" runat="server"></telerik:RadTextBox>
                 </td>
             </tr>
-            <tr>
+            <tr style="visibility:hidden;">
                 <td class="MyLable">Charge Amt LCY</td>
                 <td class="MyContent">
                     <telerik:RadNumericTextBox ID="txtChargeAmtLCY" runat="server" ClientEvents-OnValueChanged="OnChargeAmountValueChanged2" NumberFormat-DecimalDigits="0" ></telerik:RadNumericTextBox>
                 </td>
             </tr>
-            <tr>
+            <tr style="visibility:hidden;">
                 <td class="MyLable">Charge Vat Amt</td>
                 <td class="MyContent">
                     <telerik:RadNumericTextBox ID="txtChargeVatAmt" runat="server" NumberFormat-DecimalDigits="0" ></telerik:RadNumericTextBox>
