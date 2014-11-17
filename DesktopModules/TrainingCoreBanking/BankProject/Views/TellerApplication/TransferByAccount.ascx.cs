@@ -63,7 +63,15 @@ namespace BankProject.Views.TellerApplication
                         tbPhone.Text, rcbBankCode.SelectedValue,rcbBankCode.Text !=""? rcbBankCode.Text.Replace(rcbBankCode.SelectedValue + " - ", ""):"", tbBankName.Text, tbPayNumber.Text,
                         UserInfo.Username.ToString(), tbNarrative.Text, tbNarrative2.Text, rcbWaiveCharge.SelectedValue, rcbSaveTemplate.SelectedValue, txtVatSerial.Text, txtChargeAmtLCY.Value.HasValue ? txtChargeAmtLCY.Value.Value : 0,
                         txtChargeVatAmt.Value.HasValue ? txtChargeVatAmt.Value.Value : 0, rcbCreditAccount.SelectedValue);
-                    Response.Redirect("Default.aspx?tabid=" + this.TabId);
+                    switch (rcbWaiveCharge.SelectedValue)
+                    {
+                        case "NO":
+                            Response.Redirect("Default.aspx?tabid=141");
+                            break;
+                        default:
+                            Response.Redirect("Default.aspx?tabid="+this.TabId);
+                            break;
+                    }
                     break;
                 case "Preview":
                     //LoadToolBar(true);
