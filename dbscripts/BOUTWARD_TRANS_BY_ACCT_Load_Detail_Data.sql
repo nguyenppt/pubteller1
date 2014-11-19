@@ -1,14 +1,14 @@
 USE [bisolutions_vvcb]
 GO
 
-/****** Object:  StoredProcedure [dbo].[BOUTWARD_TRANS_BY_ACCT_Load_Detail_Data]    Script Date: 28/10/2014 2:14:26 PM ******/
+/****** Object:  StoredProcedure [dbo].[BOUTWARD_TRANS_BY_ACCT_Load_Detail_Data]    Script Date: 19/11/2014 6:28:13 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[BOUTWARD_TRANS_BY_ACCT_Load_Detail_Data](@ID nvarchar(30)) 
+ALTER PROCEDURE [dbo].[BOUTWARD_TRANS_BY_ACCT_Load_Detail_Data](@ID nvarchar(30)) 
 AS
 SELECT  [ID]
       ,[Status]
@@ -43,7 +43,8 @@ SELECT  [ID]
       ,[SaveTemplate]
       ,[VATSerial]
       ,[ChargeAmtLCY]
-      ,[ChargeVATAmt]  FROM [dbo].[BOUTWARD_TRANS_BY_ACCT] where ID = @ID
+      ,[ChargeVATAmt], [OldBalance]
+      ,[NewBalance]  FROM [dbo].[BOUTWARD_TRANS_BY_ACCT] where ID = @ID
 GO
 
 
