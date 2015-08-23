@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[Print_Deal_slip]    Script Date: 17/11/2014 6:29:21 PM ******/
 SET ANSI_NULLS ON

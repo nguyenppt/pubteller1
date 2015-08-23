@@ -1,20 +1,10 @@
-﻿USE [bisolutions_vvcb]
-GO
-
+﻿
 /****** Object:  StoredProcedure [dbo].[BCASHWITHRAWAL_Print_GetByCode]    Script Date: 17/11/2014 6:30:00 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
-
-
-
-
-
-
-
 
 ALTER PROCEDURE [dbo].[BCASHWITHRAWAL_Print_GetByCode]
 	@Code nvarchar(20)
@@ -89,13 +79,6 @@ BEGIN
 	join bcustomer_info cus on un.customerid = cus.customerid
 
 END
-
-
-
-
-
-
-
 
 GO
 

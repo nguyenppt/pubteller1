@@ -1,6 +1,3 @@
-USE [bisolutions_vvcb]
-GO
-
 /****** Object:  StoredProcedure [dbo].[BOUTWARD_TRANS_BY_ACCT_PreviewLisT]    Script Date: 28/10/2014 2:14:00 PM ******/
 SET ANSI_NULLS ON
 GO

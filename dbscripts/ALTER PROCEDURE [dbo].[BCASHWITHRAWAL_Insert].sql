@@ -8,11 +8,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
-
-
-
-
 ALTER PROCEDURE [dbo].[BCASHWITHRAWAL_Insert]
 	@AccountType nvarchar(5),
 	@Code nvarchar(20),

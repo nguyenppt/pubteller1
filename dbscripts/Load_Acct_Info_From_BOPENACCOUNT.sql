@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[Load_Acct_Info_From_BOPENACCOUNT]    Script Date: 19/11/2014 6:26:52 PM ******/
 SET ANSI_NULLS ON

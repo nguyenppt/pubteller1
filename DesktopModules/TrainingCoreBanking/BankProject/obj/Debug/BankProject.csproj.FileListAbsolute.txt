@@ -8,3 +8,8 @@ D:\Working\TTC\SourceCode\Teller\DesktopModules\TrainingCoreBanking\BankProject\
 D:\Working\TTC\SourceCode\Teller\bin\BankProject.dll
 D:\Working\TTC\SourceCode\Teller\bin\BankProject.pdb
 D:\Working\TTC\SourceCode\Teller\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.pdb
+D:\Working\TTC\SourceCode\pubteller1\bin\BankProject.dll
+D:\Working\TTC\SourceCode\pubteller1\bin\BankProject.pdb
+D:\Working\TTC\SourceCode\pubteller1\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.csprojResolveAssemblyReference.cache
+D:\Working\TTC\SourceCode\pubteller1\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.dll
+D:\Working\TTC\SourceCode\pubteller1\DesktopModules\TrainingCoreBanking\BankProject\obj\Debug\BankProject.pdb

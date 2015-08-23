@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[BTRANSFERWITHDRAWAL_Insert]    Script Date: 17/11/2014 6:28:35 PM ******/
 SET ANSI_NULLS ON

@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  Table [dbo].[BOUTWARD_TRANS_BY_ACCT]    Script Date: 28/10/2014 2:13:02 PM ******/
 SET ANSI_NULLS ON

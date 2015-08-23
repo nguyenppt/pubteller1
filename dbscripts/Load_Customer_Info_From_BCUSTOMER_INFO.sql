@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[Load_Customer_Info_From_BCUSTOMER_INFO]    Script Date: 07/11/2014 11:53:28 AM ******/
 SET ANSI_NULLS ON

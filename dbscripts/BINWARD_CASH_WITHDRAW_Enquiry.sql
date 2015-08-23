@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[BINWARD_CASH_WITHDRAW_Enquiry]    Script Date: 29/10/2014 5:23:28 PM ******/
 SET ANSI_NULLS ON

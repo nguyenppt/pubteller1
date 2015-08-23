@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[BINWARD_PROC_CRE_ACCT_Load_Detail_ID]    Script Date: 29/10/2014 5:30:01 PM ******/
 SET ANSI_NULLS ON

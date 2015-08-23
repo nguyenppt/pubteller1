@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  Table [dbo].[BINWARD_PROC_CRE_ACCT]    Script Date: 29/10/2014 5:28:58 PM ******/
 SET ANSI_NULLS ON

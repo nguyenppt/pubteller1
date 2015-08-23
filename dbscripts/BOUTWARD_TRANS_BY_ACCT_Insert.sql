@@ -1,6 +1,3 @@
-USE [bisolutions_vvcb]
-GO
-
 /****** Object:  StoredProcedure [dbo].[BOUTWARD_TRANS_BY_ACCT_Insert]    Script Date: 19/11/2014 6:27:39 PM ******/
 SET ANSI_NULLS ON
 GO

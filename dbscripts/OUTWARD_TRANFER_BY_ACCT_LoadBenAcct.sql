@@ -1,5 +1,3 @@
-USE [bisolutions_vvcb]
-GO
 
 /****** Object:  StoredProcedure [dbo].[OUTWARD_TRANFER_BY_ACCT_LoadBenAcct]    Script Date: 28/10/2014 2:12:32 PM ******/
 SET ANSI_NULLS ON
